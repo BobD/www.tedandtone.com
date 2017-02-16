@@ -1,5 +1,6 @@
 /*.*
 !wp-config*
+!docker-compose.yml
 !.gitignore
 wp-includes/*
 wp-admin/*
@@ -17,4 +18,3 @@ wp-content/uploads
 *~imageoptim*
 
 .htaccess
-docker-compose.yml

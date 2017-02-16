@@ -1,0 +1,35 @@
+wp-web:
+    image: wordpress
+    working_dir: /var/www/html
+    volumes:
+        - ./:/var/www/html
+    ports:
+        - "8080:80"
+    links:
+        - wp-db:mysql
+    environment:
+        - WORDPRESS_DB_PASSWORD=esthex_dev
+        - MYSQL_DATABASE=esthex_dev
+wp-db:
+    image: mysql:5.7
+    environment:
+        - MYSQL_ROOT_PASSWORD=esthex_dev
+        - MYSQL_DATABASE=esthex_dev
+wp-cli:
+    image: conetix/wordpress-with-wp-cli
+    volumes_from:
+        - wp-web
+    links:
+        - wp-db:mysql
+    entrypoint: wp  
+    command: "--info"
+    stdin_open: true
+phpmyadmin:
+    image: corbinu/docker-phpmyadmin
+    links:
+        - wp-db:mysql
+    ports:
+        - 8181:80
+    environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: esthex_dev
