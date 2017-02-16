@@ -1,0 +1,14 @@
+{
+  "name": "ted-and-tone",
+  "version": "0.0.1",
+  "description": "Ted & Tone frontend development environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ted and Tone"
+  ],
+  "author": "Bob Donderwinkel - bd creations",
+  "license": "ISC"
+}

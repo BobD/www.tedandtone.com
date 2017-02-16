@@ -3,9 +3,10 @@
 !.gitignore
 wp-includes/*
 wp-admin/*
-wp-content/*
-!wp-content/themes/ted-and-tone/
-!wp-content/plugins/
+wp-content/themes/twenty*
+wp-content/upgrade
+wp-content/uploads
+wp-content/index.php
 /sitemap.*
 *.sql
 
