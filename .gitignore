@@ -9,6 +9,7 @@ wp-content/themes/twenty*
 wp-content/themes/index.php
 wp-content/upgrade
 wp-content/uploads
+wp-content/languages
 /sitemap.*
 *.sql
 
