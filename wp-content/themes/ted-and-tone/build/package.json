@@ -4,11 +4,28 @@
   "description": "Ted & Tone frontend development environment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "NODE_ENV=development node_modules/.bin/webpack",
+    "postcss": "NODE_ENV=development postcss -w -c postcss.config.js",
+    "webpack:prod": "NODE_ENV=production node_modules/.bin/webpack",
+    "postcss:prod": "NODE_ENV=production postcss -c postcss.config.js"
   },
   "keywords": [
     "Ted and Tone"
   ],
   "author": "Bob Donderwinkel - bd creations",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.3",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.1.8",
+    "postcss-cli": "^2.6.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.1.0",
+    "postcss-loader": "^1.3.0",
+    "webpack": "^2.1.0-beta.22",
+    "webpack-dev-server": "^2.3.0"
+  }
 }

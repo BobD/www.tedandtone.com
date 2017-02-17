@@ -12,10 +12,15 @@ wp-content/uploads
 wp-content/languages
 /sitemap.*
 *.sql
+.htaccess
+
+.babelrc
+node_modules/
+wp-content/themes/**/dist/
 
 *.DS_Store
 *Thumbs.db
 *.sass-cache*
 *~imageoptim*
 
-.htaccess
+
