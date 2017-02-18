@@ -1,16 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
 var env = process.env.NODE_ENV;
-var outputPath = env === 'development' ? './dist/js' : '../js';
+var outputPath = '../js';
+var fileName = env === 'development' ? 'app.dev.bundle.js' : 'app.bundle.js';
 var componentPath = path.resolve('./src/js');
 
 // http://stackoverflow.com/questions/28572380/conditional-build-based-on-environment-using-webpack
 // https://facebook.github.io/react/docs/optimizing-performance.html#use-the-production-build
 var plugins = [
     new webpack.DefinePlugin({
-        ENV: JSON.stringify(env),
+        ENV: env,
         'process.env': {
-            NODE_ENV: JSON.stringify(env)
+            NODE_ENV: env
         }
     }),
     new webpack.ProvidePlugin({})
@@ -21,31 +22,23 @@ if(env != 'development'){
 }
 
 module.exports = {
-     entry: './src/js/app.js',
-     output: {
-        path: outputPath,
+    entry: './src/js/app.js',
+    output: {
+        path: path.resolve(outputPath),
         publicPath: "/js",
-        filename: 'app.bundle.js',
+        filename: fileName,
     },
     module: {
         rules: [
             { 
                 test: /\.js$/, 
-                use: [{
-                    loader: 'babel-loader',
-                    options: { presets: ['es2015'] },
-                    exclude: [/node_modules/],
-                }],
+                use: 'babel-loader'
             }
         ]
     },
-     // See: https://seesparkbox.com/foundry/write_better_frontend_modules_with_webpack
-    resolve: {
-        root: componentPath,
-    },
     plugins: plugins,
-    node: {
-        fs: "empty" // avoids error messages
-    },
-    devServer: { inline: true }
+    devServer: {
+        contentBase: "./src",
+        port: 8080
+    }
 };

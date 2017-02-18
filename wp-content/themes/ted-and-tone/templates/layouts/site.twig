@@ -4,3 +4,16 @@
 		{% endblock %}
 	{% endembed %}
 {% endblock %}
+
+{% block header %}
+{% endblock %}
+
+<body>
+	{% block body %}
+	{% endblock %}
+</body>
+
+{% block footer %}
+	{% embed 'includes/footer.twig' %}
+	{% endembed %}
+{% endblock %}
