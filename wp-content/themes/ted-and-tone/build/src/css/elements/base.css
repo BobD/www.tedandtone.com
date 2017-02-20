@@ -3,6 +3,7 @@
 *:before {
     box-sizing: border-box;
 }
+
 html {
 	/* Set the base font size for rem sizes */
 	font-size: 10px;
@@ -12,17 +13,12 @@ html {
 	text-rendering: auto;
 	-webkit-text-size-adjust: 100%;
 }
+
 body {
- 	font-size: 13px;
- 	font-size: 1.3rem;
- 	line-height: 18.799px;
- 	line-height: 1.88rem
-}
-@media (max-width: 375px) {
-    body {
-        font-size: 1.4rem;
-        line-height: 2.3rem;
-    }
+ 	@apply --font-size-base;
+
+ 	@media (--screen-xs) {
+ 		@apply --font-size-medium;
  	}
-.footer{
 }
+

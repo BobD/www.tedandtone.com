@@ -24,6 +24,7 @@ class TedAndTone extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_menus' ) );
 		parent::__construct();
 	}
 
@@ -35,10 +36,25 @@ class TedAndTone extends TimberSite {
 		//this is where you can register custom taxonomies
 	}
 
+	function register_menus(){
+		register_nav_menus( array(
+			'shop' => 'Shop',
+			'about' => 'About',
+			'customer_care' => 'Customer Care',
+			'contact' => 'Contact',
+		) );
+	}
+
 	function add_to_context( $context ) {
 		$context['env'] = WP_ENV;
-		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+
+		foreach(get_registered_nav_menus() as $k => $v) {
+		    $context['menu_' . $k] = new TimberMenu($k);
+		}
+
+		// echo '<pre>' . var_export($context['menu_contact']) . '</pre>';
+
 		return $context;
 	}
 

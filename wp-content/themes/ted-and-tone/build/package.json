@@ -4,11 +4,11 @@
   "description": "Ted & Tone frontend development environment",
   "main": "index.js",
   "scripts": {
-    "js": "NODE_ENV=development node_modules/.bin/webpack",
+    "js": "NODE_ENV=development node_modules/.bin/webpack --watch",
     "styles": "NODE_ENV=development postcss -w -c postcss.config.js",
     "js:prod": "NODE_ENV=production node_modules/.bin/webpack",
     "styles:prod": "NODE_ENV=production postcss -c postcss.config.js",
-    "serve": "webpack-dev-server --inline --hot --open"
+    "serve": "webpack-dev-server --inline --hot --open --port 8080 --contentBase ./src"
   },
   "keywords": [
     "Ted and Tone"
@@ -24,6 +24,7 @@
     "cssnano": "^3.10.0",
     "postcss-cli": "^2.6.0",
     "postcss-cssnext": "^2.9.0",
+    "postcss-easy-import": "^2.0.0",
     "postcss-import": "^9.1.0",
     "postcss-loader": "^1.3.0",
     "webpack": "^2.2.1",

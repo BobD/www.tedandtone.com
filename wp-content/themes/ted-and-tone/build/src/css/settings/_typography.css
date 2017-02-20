@@ -1,0 +1,37 @@
+:root {
+
+  	--font-size-base: {
+  		font-size: 1.3rem;
+  		line-height: 1.88rem;
+  	};
+
+  	--font-size-small: {
+  		font-size: 1.1rem;
+  		line-height: 2rem;
+  	};
+
+  	 --font-size-medium: {
+  	 	font-size: 1.4rem;
+  		line-height: 2.3rem;
+  	};
+
+  	--font-title-1: {
+  		font-size: 1.1rem;
+  		line-height: 2rem;
+  	};
+
+  	--font-title-2: {
+  		font-size: 1.4rem;
+  		line-height: 2.3rem;
+  	};
+
+  	--font-title-3: {
+  		font-size: 1.5rem;
+  		line-height: 3rem;
+  	};
+
+  	--font-title-4: {
+  		font-size: 1.9rem;
+  		line-height: 3rem;
+  	};
+}

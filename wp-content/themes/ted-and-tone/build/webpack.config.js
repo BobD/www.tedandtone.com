@@ -37,8 +37,7 @@ module.exports = {
         ]
     },
     plugins: plugins,
-    devServer: {
-        contentBase: "./src",
-        port: 8080
-    }
+    // devServer: {
+    //     publicPath: "/js",
+    // }
 };

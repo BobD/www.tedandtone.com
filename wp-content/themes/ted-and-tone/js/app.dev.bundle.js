@@ -73,7 +73,7 @@
 "use strict";
 
 
-console.log('dd');
+console.log('tja ');
 
 /***/ })
 /******/ ]);
