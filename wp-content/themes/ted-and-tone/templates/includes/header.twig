@@ -1,0 +1,18 @@
+<div class="header__menu">
+    <nav class="menu">
+        <div class="title title--small header__title">{{menu_shop.name}}</div>
+        <div class="header__menu-list">    
+        	<ul class="menu__list">
+	            {% for item in menu_shop.items %}
+                	<li class="menu__item header__menu-item">
+                    	<a class="link menu__link header__menu-link title title--small" href="{{item.get_link}}">{{item.title}}</a>
+                	</li>
+            	{% endfor %}
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<a href="" class="link title title--small header__bag">
+	Shoppingbag
+</a>

@@ -1,0 +1,25 @@
+.site{
+	max-width: 1024px;
+	margin: 0 auto;
+	padding-top: 6rem;
+	
+	@media (--screen-sm) {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+
+		padding-top: 8rem;
+	}
+}
+
+.site__header{
+
+}
+
+.site__main{
+  flex: 1;
+}
+
+.site__footer{
+	
+}

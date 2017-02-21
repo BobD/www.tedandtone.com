@@ -1,39 +1,40 @@
 {% macro footerMenu(menu) %}
     {% if menu %}
-        <nav class="menu footer__menu">
-            <div class="footer__title">{{menu.name}}</div>
-            <ul class="menu__list">        
-                {% for item in menu.items %}
-                    <li class="{{item.classes | join(' menu__item')}}">
-                        <a class="menu__link" href="{{item.get_link}}">{{item.title}}</a>
-                        {% if item.children %}
-                            <ul class="menu__list">
-                                {% for item in item.children %}
-                                    <a class="menu__link" href="{{item.get_link}}">{{item.title}}</a>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
-        </nav>
+        <div class="footer__menu">
+            <nav class="menu">
+                <div class="title title--small footer__title">{{menu.name}}</div>
+                <ul class="menu__list">        
+                    {% for item in menu.items %}
+                        <li class="menu__item">
+                            <a class="link menu__link" href="{{item.get_link}}">{{item.title}}</a>
+                            {% if item.children %}
+                                <ul class="menu__sub-list">
+                                    {% for item in item.children %}
+                                        <a class="menu__link" href="{{item.get_link}}">{{item.title}}</a>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
     {% endif %}
 {% endmacro %}
 
-<footer class="footer">
+{{ _self.footerMenu(menu_about) }}
+{{ _self.footerMenu(menu_customer_care) }}
+{{ _self.footerMenu(menu_contact) }}
 
-    {{ _self.footerMenu(menu_about) }}
-    {{ _self.footerMenu(menu_customer_care) }}
-    {{ _self.footerMenu(menu_contact) }}
+{% if env == 'development' %}
+    <script src="{{site.theme.link}}/js/app.dev.bundle.js" charset="utf-8"></script>
+{% else %}
+    <script src="{{site.theme.link}}/js/app.bundle.js" charset="utf-8"></script>
+{% endif %}
 
-    {% if env == 'development' %}
-        <script src="{{site.theme.link}}/js/app.dev.bundle.js" charset="utf-8"></script>
-    {% else %}
-        <script src="{{site.theme.link}}/js/app.bundle.js" charset="utf-8"></script>
-    {% endif %}
+{% if env == 'development' %}
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{% endif %}
 
-    {% if env == 'development' %}
-        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-    {% endif %}
-        
-</footer>
+{% block footer %}
+{% endblock %}

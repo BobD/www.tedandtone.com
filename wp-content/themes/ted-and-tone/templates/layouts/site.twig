@@ -5,19 +5,40 @@
 	{% endembed %}
 {% endblock %}
 
-{% block header %}
-{% endblock %}
+<body class="body">
+	
+	<div class="site">
+		
+		<header class="header site__header">
+			{% embed 'includes/header.twig' %}
+			{% endembed %}
+			{% block header %}
+			{% endblock %}
+		</header>
 
-<body>
+		<main class="main site__main">
+			{% block main %}
+			{% endblock %}
+		</main>
+		
+		<footer class="footer site__footer">
+			{% embed 'includes/footer.twig' %}
+			{% endembed %}
+			{% block footer %}
+			{% endblock %}
+		</footer>
 
-	{% block body %}
-	{% endblock %}
-
-	{% block footer %}
-		{% embed 'includes/footer.twig' %}
-		{% endembed %}
-	{% endblock %}
+	</div>
 
 	{{function('wp_footer')}}
+
+	{% if user_logged_in %}
+		<style>
+			html{
+				/* override on WP admin-bar styles */
+				margin-top: 0 !important;
+			}
+		</style>
+	{% endif %}
 
 </body>

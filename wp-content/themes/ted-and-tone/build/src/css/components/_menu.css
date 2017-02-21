@@ -2,10 +2,25 @@
 
 }
 
+.menu__title{
+
+}
+
+.menu__list{
+	margin: .5em 0;
+	padding: 0;
+	list-style: none;
+}
+
 .menu__item{
-	
+	line-height: 2.3rem;
 }
 
 .menu__link{
-	
+}
+
+.menu__sub-list{
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
