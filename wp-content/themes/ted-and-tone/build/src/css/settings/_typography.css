@@ -35,8 +35,18 @@
   		line-height: 3rem;
   	};
 
-    --font-family-sans{
-        font-family: 'Roboto', sans-serif;
+    --font-family-sans-light{
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+    }
+
+    --font-family-sans-regular{
+      font-family: 'Roboto', sans-serif;
+    }
+
+    --font-family-sans-bold{
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
     }
 
     --font-family-serif{

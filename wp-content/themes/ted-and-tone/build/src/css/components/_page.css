@@ -1,0 +1,18 @@
+.page{
+	padding: 2rem 0;
+}
+
+.page__leaderboard{
+	margin-bottom: 4rem;
+}
+
+.page__content{
+	 -webkit-column-count: 3;
+	 & .wp-caption{
+
+	 }
+
+	 & .wp-caption-text{
+		text-align: center;
+	 }
+}

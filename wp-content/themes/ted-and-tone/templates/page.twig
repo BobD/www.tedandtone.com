@@ -1,0 +1,19 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<article class="page">
+		
+		<div class="page__leaderboard">
+			{% include 'includes/leaderboard.twig' with {'post': post} %}
+		</div>
+
+		<div class="page__content">
+			{{post.content}}
+		</div>
+
+	</article>
+
+
+
+{% endblock %}

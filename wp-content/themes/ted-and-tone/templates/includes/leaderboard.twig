@@ -1,0 +1,37 @@
+<div class="leaderboard">
+	{% set sizes = wp_get_attachment_image_srcset(post.thumbnail.id)|attachment_background_styles %}
+	
+	<style>
+		{% for size, src in sizes %}
+			{% if loop.first %}
+				@media (max-width: {{size}}px) {
+					.leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% elseif loop.last %}
+				@media (min-width: {{formerSize}}px){
+					.leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% else %}
+				@media (min-width: {{formerSize}}px) and (max-width: {{size}}px) {
+					.leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% endif %}
+			{% set formerSize = size %}
+	    {% endfor %}
+    </style>
+
+    <div class="leaderboard__image"></div>
+
+	<header class="leaderboard__info">
+		<div class="leaderboard__sub-title"></div>
+		<h1 class="leaderboard__title title title--big">{{post.title}}</h1>
+		<div class="leaderboard__caption"></div>
+	</header>
+
+</div>

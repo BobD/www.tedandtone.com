@@ -23,7 +23,7 @@ body {
 	margin: 0;
 
  	@apply --font-size-base;
- 	@apply --font-family-sans;
+ 	@apply --font-family-serif;
 
  	@media (--screen-xs) {
  		@apply --font-size-medium;

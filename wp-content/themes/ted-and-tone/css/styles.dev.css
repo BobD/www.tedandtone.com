@@ -24,7 +24,7 @@ body {
 
  	line-height: 18.799px;
  	line-height: 1.88rem;
- 	font-family: 'Roboto', sans-serif
+ 	font-family: Georgia, Times, "Times New Roman", serif
 }
 @media (min-width: 414px) {
     body {
@@ -222,6 +222,44 @@ input:checked  ~ .menu__label > .menu__hamburger > span:nth-child(3) {
 .header__bag:after, .header__bag.link:after {
     top: 85%;
 }
+.leaderboard{
+  	position: relative
+}
+.leaderboard:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 46.875%;
+}
+.leaderboard__image{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.leaderboard__info{
+	position: absolute;
+	right: 20px;
+	right: 2rem;
+	bottom: 20px;
+	bottom: 2rem;
+	background: white;
+	padding: 25px 75px;
+	padding: 2.5rem 7.5rem;
+}
+.leaderboard__sub-title{
+
+}
+.leaderboard__title{
+
+}
+.leaderboard__caption{
+
+}
 .link{
 	position: relative;
 	color: inherit;
@@ -351,6 +389,22 @@ body:not(.body--mobile) .header__menu:hover  .menu__list{
 .menu__link{
 
 }
+.page{
+	padding: 20px 0;
+	padding: 2rem 0;
+}
+.page__leaderboard{
+	margin-bottom: 40px;
+	margin-bottom: 4rem;
+}
+.page__content{
+	 -webkit-column-count: 3
+}
+.page__content .wp-caption {
+}
+.page__content .wp-caption-text {
+    text-align: center;
+}
 .site{
 	max-width: 1024px;
 	margin: 0 auto;
@@ -382,6 +436,7 @@ body:not(.body--mobile) .header__menu:hover  .menu__list{
 	
 }
 .title{
+	font-family: 'Roboto', sans-serif;
 	text-transform: uppercase
 }
 .title--small {
@@ -389,4 +444,13 @@ body:not(.body--mobile) .header__menu:hover  .menu__list{
     font-size: 1.1rem;
     line-height: 20px;
     line-height: 2rem;
+}
+.title--big {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+    font-size: 1.9rem;
+    line-height: 30px;
+    line-height: 3rem;
+    letter-spacing: .1em;
 }

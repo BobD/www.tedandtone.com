@@ -60,18 +60,26 @@ class TedAndTone extends TimberSite {
 		return $context;
 	}
 
-	function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
 	function add_to_twig( $twig ) {
-		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+		$twig->addFilter('attachment_background_styles', new Twig_SimpleFilter('attachment_background_styles', array($this, 'get_attachment_background_styles')));
 		return $twig;
 	}
 
+	function get_attachment_background_styles($srcset){
+		$srset_split = explode(', ', $srcset);
+		$sizes = array();
+		$styles = array();
+
+		foreach ($srset_split as $v){
+			$split = explode(' ', $v);
+			$src = $split[0];
+			$width = str_replace('w', '', $split[1]);
+			$sizes[$width] = $src;
+		}
+
+		return $sizes;
+	}
 }
 
 new TedAndTone();

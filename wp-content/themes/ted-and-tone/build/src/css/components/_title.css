@@ -1,7 +1,15 @@
 .title{
+	@apply --font-family-sans-regular;
 	text-transform: uppercase;
 
 	&--small{
 		@apply --font-title-1;
+	}
+
+	&--big{
+		@apply --font-family-sans-light;
+		@apply --font-title-4;
+
+		letter-spacing: .1em;
 	}
 }
