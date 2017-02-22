@@ -49,6 +49,7 @@ class TedAndTone extends TimberSite {
 		$context['env'] = WP_ENV;
 		$context['site'] = $this;
 		$context['user_logged_in'] = is_user_logged_in();
+		$context['is_mobile'] = wp_is_mobile();
 
 		foreach(get_registered_nav_menus() as $k => $v) {
 		    $context['menu_' . $k] = new TimberMenu($k);

@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html,
+body{
+	overflow-x: hidden;
+}
+
 html {
 	/* Set the base font size for rem sizes */
 	font-size: 10px;
@@ -16,9 +21,9 @@ html {
 
 body {
 	margin: 0;
-	overflow-x: hidden;
 
  	@apply --font-size-base;
+ 	@apply --font-family-sans;
 
  	@media (--screen-xs) {
  		@apply --font-size-medium;

@@ -1,6 +1,5 @@
 :root{
 	--header_line-height: 3rem;
-	--header_menu-padding: 2rem;
 }
 
 .header{
@@ -10,6 +9,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	height: var(--header_line-height);
 
 	&:before{
 		content: '';
@@ -19,61 +19,21 @@
 		left: -100%;
 		right: -100%;
 		background: var(--color-black);
-		height: 3rem;
+		height: var(--header_line-height);
 		z-index: -1;
 	}
 }
 
-.header__title{
+.header__menu-title{
 	&,
 	&.title{
 		line-height: var(--header_line-height);
 	}
-
-	padding-left: var(--header_menu-padding);
-	color: white;
-}
-
-.header__menu{
-	color: white;
-    display: inline-block;
-    position: relative;
-
-    & .header__menu-list{
-    	transition: max-height .25s ease;
-    	max-height: 0;
-    	overflow: hidden;
-    }
-
-    &:hover{
-    	& .header__menu-list{
-			max-height: 40rem;
-    	}
-    }
-
-    & .menu__list{
-		margin-bottom: 1rem;
-    }
-}
-
-.header__menu-list{
-	position: absolute;
-	background: var(--color-black);
-}
-
-.header__menu-item{
-	padding: 0 var(--header_menu-padding);
-	&,
-	&.menu__item{
-		line-height: 2rem;
-	}
-}
-
-.header__menu-link{
-	white-space: nowrap;
 }
 
 .header__bag{
+	position: relative;
+	right: var(--page-side-padding);
 	&,
 	&.link{
 		&:after{

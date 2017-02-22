@@ -1,24 +1,22 @@
 {% macro footerMenu(menu) %}
     {% if menu %}
-        <div class="footer__menu">
-            <nav class="menu">
-                <div class="title title--small footer__title">{{menu.name}}</div>
-                <ul class="menu__list">        
-                    {% for item in menu.items %}
-                        <li class="menu__item">
-                            <a class="link menu__link" href="{{item.get_link}}">{{item.title}}</a>
-                            {% if item.children %}
-                                <ul class="menu__sub-list">
-                                    {% for item in item.children %}
-                                        <a class="menu__link" href="{{item.get_link}}">{{item.title}}</a>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        </div>
+        <nav class="footer__menu">
+            <div class="title title--small footer__title">{{menu.name}}</div>
+            <ul class="footer__menu-list">        
+                {% for item in menu.items %}
+                    <li class="footer__menu-item">
+                        <a class="link footer__menu-link" href="{{item.get_link}}">{{item.title}}</a>
+                        {% if item.children %}
+                            <ul class="footer__menu-sub-list">
+                                {% for item in item.children %}
+                                    <a class="link footer__menu-link" href="{{item.get_link}}">{{item.title}}</a>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
     {% endif %}
 {% endmacro %}
 

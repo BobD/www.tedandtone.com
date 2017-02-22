@@ -34,4 +34,12 @@
   		font-size: 1.9rem;
   		line-height: 3rem;
   	};
+
+    --font-family-sans{
+        font-family: 'Roboto', sans-serif;
+    }
+
+    --font-family-serif{
+      font-family: Georgia, Times, "Times New Roman", serif;
+    }
 }
