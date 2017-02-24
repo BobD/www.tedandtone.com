@@ -5,8 +5,15 @@
     	display: block;
     	content: "";
     	width: 100%;
-    	padding-top: calc((480 / 1024) * 100%);
+    	padding-top: calc((.9) * 100%);
   	}
+
+  	@media (--screen-sm) {
+  		&:before {
+    		padding-top: calc((480 / 1024) * 100%);
+  		}
+
+	}
 }
 
 .leaderboard__image{

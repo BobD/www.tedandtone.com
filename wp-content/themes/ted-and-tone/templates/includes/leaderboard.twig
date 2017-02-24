@@ -28,10 +28,15 @@
 
     <div class="leaderboard__image"></div>
 
-	<header class="leaderboard__info">
+	<div class="leaderboard__info">
 		<div class="leaderboard__sub-title"></div>
-		<h1 class="leaderboard__title title title--big">{{post.title}}</h1>
+		{% if title_tag is defined %}
+			<{{title_tag}} class="leaderboard__title title title--big">{{post.title}}</{{title_tag}}>
+		{% else %}
+			<h5 class="leaderboard__title title title--big">{{post.title}}</h5>
+		{% endif %}
+
 		<div class="leaderboard__caption"></div>
-	</header>
+	</div>
 
 </div>

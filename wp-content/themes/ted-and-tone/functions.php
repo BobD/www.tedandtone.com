@@ -17,6 +17,7 @@ Timber::$dirname = array('templates', 'views');
 class TedAndTone extends TimberSite {
 
 	function __construct() {
+		add_post_type_support( 'page', 'excerpt' );
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
@@ -67,6 +68,10 @@ class TedAndTone extends TimberSite {
 	}
 
 	function get_attachment_background_styles($srcset){
+		if(empty($srcset)){
+			return;
+		}
+
 		$srset_split = explode(', ', $srcset);
 		$sizes = array();
 		$styles = array();

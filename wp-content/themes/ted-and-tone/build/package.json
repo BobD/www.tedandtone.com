@@ -7,8 +7,7 @@
     "js": "NODE_ENV=development node_modules/.bin/webpack --watch",
     "styles": "NODE_ENV=development postcss -w -c postcss.config.js",
     "js:prod": "NODE_ENV=production node_modules/.bin/webpack",
-    "styles:prod": "NODE_ENV=production postcss -c postcss.config.js",
-    "serve": "webpack-dev-server --inline --hot --open --port 8080 --contentBase ./src"
+    "styles:prod": "NODE_ENV=production postcss -c postcss.config.js"
   },
   "keywords": [
     "Ted and Tone"
