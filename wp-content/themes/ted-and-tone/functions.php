@@ -26,7 +26,12 @@ class TedAndTone extends TimberSite {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
+		add_action('customize_register', array( $this, 'customize_register') );
 		parent::__construct();
+	}
+
+	function customize_register($wp_customize) {
+  		$wp_customize->remove_section( 'static_front_page' );
 	}
 
 	function register_post_types() {

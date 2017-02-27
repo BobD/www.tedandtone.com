@@ -1,12 +1,8 @@
 <?php
 /**
- * The main template file
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists
- *
- * Methods for TimberHelper can be found in the /lib sub-directory
+ * This is the index template of the Ted and Tone website theme.
+ * This template is the ultimate fallback in the Wordpress template hierarchy and will rarely be used in this theme.  
+ * If you're looking for the template used as the home page, check out front-page.php
  *
  * @package  WordPress
  * @subpackage  Timber
@@ -15,9 +11,8 @@
 
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
-$context['foo'] = 'bar';
-$templates = array( 'index.twig' );
+$templates = array( 'home.twig' );
 if ( is_home() ) {
-	array_unshift( $templates, 'home.twig' );
+	array_unshift( $templates, 'blog.twig' );
 }
 Timber::render( $templates, $context );

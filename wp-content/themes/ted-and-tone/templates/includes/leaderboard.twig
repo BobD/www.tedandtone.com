@@ -1,23 +1,24 @@
-<div class="leaderboard">
-	{% set sizes = wp_get_attachment_image_srcset(post.thumbnail.id)|attachment_background_styles %}
+<div class="leaderboard leaderboard--{{post.ID}} {% if modifier %} {{modifier}} {% endif %} ">
+	{% set thumbnail_id = get_post_thumbnail_id(post.ID) %}
+	{% set sizes = wp_get_attachment_image_srcset(thumbnail_id)|attachment_background_styles %}
 	
 	<style>
 		{% for size, src in sizes %}
 			{% if loop.first %}
 				@media (max-width: {{size}}px) {
-					.leaderboard__image{
+					.leaderboard--{{post.ID}} .leaderboard__image{
 						background-image: url('{{src}}');
 					}
 				}
 			{% elseif loop.last %}
 				@media (min-width: {{formerSize}}px){
-					.leaderboard__image{
+					.leaderboard--{{post.ID}} .leaderboard__image{
 						background-image: url('{{src}}');
 					}
 				}
 			{% else %}
 				@media (min-width: {{formerSize}}px) and (max-width: {{size}}px) {
-					.leaderboard__image{
+					.leaderboard--{{post.ID}} .leaderboard__image{
 						background-image: url('{{src}}');
 					}
 				}
@@ -29,14 +30,15 @@
     <div class="leaderboard__image"></div>
 
 	<div class="leaderboard__info">
-		<div class="leaderboard__sub-title"></div>
+		<div class="leaderboard__sub-title title title--small">{{get_field('subtitle', post.ID)}}</div>
+
 		{% if title_tag is defined %}
-			<{{title_tag}} class="leaderboard__title title title--big">{{post.title}}</{{title_tag}}>
+			<{{title_tag}} class="leaderboard__title title title--big">{{post.post_title}}</{{title_tag}}>
 		{% else %}
-			<h5 class="leaderboard__title title title--big">{{post.title}}</h5>
+			<h5 class="leaderboard__title title title--big">{{post.post_title}}</h5>
 		{% endif %}
 
-		<div class="leaderboard__caption"></div>
+		<div class="leaderboard__caption">{{get_field('caption', post.ID)}}</div>
 	</div>
 
 </div>

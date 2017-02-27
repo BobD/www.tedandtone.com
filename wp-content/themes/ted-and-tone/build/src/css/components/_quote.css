@@ -1,0 +1,27 @@
+.quote{
+	text-align: center;
+}
+
+.quote__title{
+	quotes: "“" "”" "‘" "’";
+
+	&:before{
+		content: open-quote;
+	}
+
+	&:after{
+		content: close-quote;
+	}
+}
+
+.quote__source{
+	display: inline-block;
+	border-top: 2px solid var(--color-gold-soft);
+	margin-top: 2rem;
+	padding-top: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+
+	@apply --font-family-serif-bold;
+	font-size: var(--font-size-medium);
+}

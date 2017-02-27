@@ -32,11 +32,21 @@
 	right: 2rem;
 	bottom: 2rem;
 	background: white;
-	padding: 2.5rem 7.5rem;
+	padding: 2rem 6rem;
+	text-align: center;
+
+	@media (--screen-sm) {
+		padding: 2.5rem 7.5rem;
+	}
+}
+
+.leaderboard--info-left .leaderboard__info{
+	left: 2rem;
+	right: auto;
 }
 
 .leaderboard__sub-title{
-
+	color: var(--color-gold);
 }
 
 .leaderboard__title{

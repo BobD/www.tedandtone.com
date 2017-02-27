@@ -8,14 +8,13 @@
 			{% include 'includes/leaderboard.twig' with {'post': post, 'title_tag': 'h1'} %}
 		</header>
 
-
 		{% if intro %}
-			<div class="page__intro title">
-				{{intro}}
+			<div class="page__intro">
+				<div class="title">{{intro}}</div>
 			</div>
 		{% endif %}
 
-		<header class="page__container">
+		<div class="page__container">
 
 			{% if post.sidebar %}
 				<aside class="page__sidebar">
@@ -30,7 +29,5 @@
 		</div>
 
 	</article>
-
-
 
 {% endblock %}
