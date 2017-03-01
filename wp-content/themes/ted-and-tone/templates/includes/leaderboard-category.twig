@@ -1,0 +1,46 @@
+{% set category_id = category.term_id %}
+
+<div class="leaderboard leaderboard--{{category_id}} {% if modifier %} {{modifier}} {% endif %} ">
+	{% set thumbnail_id = get_woocommerce_term_meta(category_id, 'thumbnail_id', true) %}
+	{% set sizes = wp_get_attachment_image_srcset(thumbnail_id)|attachment_background_styles %}
+	
+	<style>
+		{% for size, src in sizes %}
+			{% if loop.first %}
+				@media (max-width: {{size}}px) {
+					.leaderboard--{{category_id}} .leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% elseif loop.last %}
+				@media (min-width: {{formerSize}}px){
+					.leaderboard--{{category_id}} .leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% else %}
+				@media (min-width: {{formerSize}}px) and (max-width: {{size}}px) {
+					.leaderboard--{{category_id}} .leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% endif %}
+			{% set formerSize = size %}
+	    {% endfor %}
+    </style>
+
+    <div class="leaderboard__image"></div>
+
+	<div class="leaderboard__info">
+		<div class="leaderboard__sub-title title title--small">{{get_field('subtitle', category)}}</div>
+
+		{% if title_tag is defined %}
+			<{{title_tag}} class="leaderboard__title title title--big">{{category.name}}</{{title_tag}}>
+		{% else %}
+			<h5 class="leaderboard__title title title--big">{{category.name}}</h5>
+		{% endif %}
+
+		<div class="leaderboard__caption">{{get_field('caption', category)}}</div>
+	</div>
+
+</div>

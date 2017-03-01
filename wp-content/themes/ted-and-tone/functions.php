@@ -27,6 +27,9 @@ class TedAndTone extends TimberSite {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
 		add_action('customize_register', array( $this, 'customize_register') );
+
+		$this->init_woocommerce();
+
 		parent::__construct();
 	}
 
@@ -90,6 +93,57 @@ class TedAndTone extends TimberSite {
 
 		return $sizes;
 	}
+
+	function init_woocommerce(){
+		/* References for customizing the WC templates 
+			http://bradley-davis.com/woocommerce-add-text-regular-sale-price/
+			https://mikejolley.com/2016/05/10/woocommerce-remove-product-data-tabs-and-hook-content-in-sequence-instead/
+		*/
+
+		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+		// add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+		add_action( 'init', array( $this, 'tat_remove_wc_breadcrumbs') );
+		add_filter( 'woocommerce_product_tabs', array( $this, 'tat_remove_wc_reviews_tab'));
+		add_action( 'after_setup_theme', array( $this, 'tat_wc_support') );
+		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_product_description_tab' );
+		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_product_additional_information_tab' );
+		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_show_product_sale_flash' );
+		add_filter( 'woocommerce_product_description_heading', array( $this, 'tat_wc_description_heading') );
+		add_filter( 'woocommerce_product_additional_information_heading', array( $this, 'tat_wc_information_heading') );
+		add_filter('gettext', array( $this, 'tat_wc_change_checkout_btn'));
+		add_filter('ngettext', array( $this, 'tat_wc_change_checkout_btn'));
+
+		add_action( 'woocommerce_sidebar', 'woocommerce_upsell_display', 15 );
+		add_action( 'woocommerce_sidebar', 'woocommerce_output_related_products', 20 );
+	}
+
+	function tat_wc_support() {
+    	add_theme_support( 'woocommerce' );
+	}
+
+
+	function tat_wc_description_heading() {
+		return 'What is it?';
+	}
+
+	function tat_wc_information_heading() {
+		return '';
+	}
+
+	function tat_remove_wc_reviews_tab($tabs){
+		return [];
+	}
+
+	function tat_wc_change_checkout_btn($checkout_btn){
+	  	$checkout_btn= str_ireplace('Add to cart', 'Add to shoppingbag', $checkout_btn);
+  		return $checkout_btn;	
+	}
+
+	function tat_remove_wc_breadcrumbs() {
+    	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+	}
+
 }
 
 new TedAndTone();

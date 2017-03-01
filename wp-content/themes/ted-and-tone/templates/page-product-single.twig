@@ -1,0 +1,22 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<section class="page page--shop">
+
+		<header class="page__leaderboard">
+			{% include 'includes/leaderboard-category.twig' with {'category': category, 'title_tag': 'h1'} %}
+		</header>
+
+		<div class="page__intro">
+			<div class="title">{{category_description(category.term_id)}}</div>
+		</div>
+
+		<div class="page__container">
+			<div class="shop shop--product">
+				{{content}}
+			</div>
+   	 	</div>
+
+    </section>
+{% endblock %}

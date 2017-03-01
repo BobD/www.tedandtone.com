@@ -2,7 +2,7 @@
 
 {% block main %}
 
-	<article class="page">
+	<div class="page">
 				
 		{% for block in intro_blocks %}
 			<a href="{{get_permalink(block.ID)}}" class="page__leaderboard">
@@ -17,10 +17,31 @@
 			</blockquote >
 		{% endif %}
 
-		<header class="page__container">
+		<ul class="page__categories categories">
 
-		</div>
+			{% for category in categories %}
+				<li class="categories_item">
 
-	</article>
+					<div class="categories__image">
+						
+					</div>
+
+					<div class="categories__info">
+
+						<div class="categories__caption">
+							
+						</div>
+						
+						<h5 class="categories__title">
+							{{category.name}}
+						</h5>
+
+					</div>
+				</li>
+			{% endfor %}
+
+		</ul>
+
+	</div>
 
 {% endblock %}

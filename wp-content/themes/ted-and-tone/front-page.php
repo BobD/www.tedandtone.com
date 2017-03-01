@@ -14,14 +14,27 @@ TimberHelper::function_wrapper('wp_get_attachment_image_srcset');
 TimberHelper::function_wrapper('get_permalink');
 TimberHelper::function_wrapper('get_field');
 
-$intro_blocks = get_field('intro_blocks');
 $post = new TimberPost();
+$products = get_field('products');
+$categories = array();
+
+foreach ($products as $product) {
+	$product_categories = get_the_terms($product->ID, 'product_cat');
+	$product_category = reset($product_categories);
+	$categories[] = $product_category;
+}
+
+foreach ($products as $product) {
+	$product_categories = get_the_terms($product->ID, 'product_cat');
+	$product_category = reset($product_categories);
+}
 
 $context = Timber::get_context();
 $context['post'] = $post;
 $context['quote'] = get_the_excerpt();
 $context['intro_blocks'] = get_field('intro_blocks');
-$context['sub_blocks'] = get_field('sub_blocks');
+$context['categories'] = $categories;
+
 $templates = array( 'home.twig' );
 
 if ( is_home() ) {

@@ -1,0 +1,133 @@
+/* Overrides on the woocommerce styles */
+
+.shop{
+	width: 100%;
+
+	&--product{
+		@apply --font-family-sans-regular;
+
+		overflow: hidden;
+
+		& .product{
+			& h1{
+				@apply --font-family-sans-light;
+				@apply --font-title-4;
+				text-transform: uppercase;
+			}
+
+			& th,
+			& h2,
+			& h3,
+			& h4,
+			& .quantity:before{
+				color: var(--color-gold);
+				text-transform: uppercase;
+				font-weight: normal;
+				font-size: inherit;
+				padding: 0;
+				margin: 0 0 .25rem;
+			}
+
+			& p{
+				margin: 0 0 2rem 0;
+				font-style: normal;
+			}
+
+			& .onsale{
+				color: var(--color-gold);
+				text-transform: uppercase;
+				display: inline-block;
+			}
+		}
+		
+		& .images{
+			
+			& .woocommerce-main-image{
+				& img{
+					max-width: 100%;
+					width: auto;
+					height: auto;
+				}
+			}
+		
+			& .thumbnails{
+				margin-top: 4rem;
+				display: flex;
+				max-width: 100%;
+
+				& a{
+					flex-grow: 1;
+					flex-shrink: 1;
+					display: inline-block;
+					margin-right: 1em;
+					&:last-child{
+						margin-right: 0;
+					}
+
+					& img{
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
+
+			@media (--screen-sm) {
+				float: left;
+				padding-right: 4rem;
+				max-width: 50%;
+			}
+
+		}
+
+		& .summary,
+		& .woocommerce-tab{
+			display: block;
+			overflow: hidden;
+		}
+
+		& .summary{		
+			margin-bottom: 3rem;
+		}
+
+		& .shop_attributes{
+			& th,
+			& td{
+				display: block;
+				text-align: left;
+			}
+		}
+
+		& .quantity{
+
+			&:before{
+				content: 'Amount';
+				display: block;
+				margin-bottom: .5rem !important;
+			}
+
+			& input{
+				width: 5em;
+				margin-bottom: 1rem;
+				padding: .5em .75em;
+			}
+		}
+
+		& .single_add_to_cart_button{
+			 border:none;
+			 background-color: var(--color-black-soft);
+			 color: white;
+			 text-transform: uppercase;
+			 padding: .5em .75em;
+			 font-size: inherit;
+			 font-family: inherit;
+			 cursor: pointer;
+			 margin-top: 1rem;
+			 transition: background-color ease .25s;
+
+			 &:hover{
+				background-color: var(--color-gold);
+			 }
+		}
+
+	}
+}

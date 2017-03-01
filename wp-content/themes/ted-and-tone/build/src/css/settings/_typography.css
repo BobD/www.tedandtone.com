@@ -7,12 +7,10 @@
 
   	--font-size-small: {
   		font-size: 1.1rem;
-  		line-height: 2rem;
   	};
 
   	 --font-size-medium: {
   	 	font-size: 1.4rem;
-  		line-height: 2.3rem;
   	};
 
   	--font-title-1: {
@@ -38,6 +36,7 @@
     --font-family-sans-light{
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
+      font-style: normal;
     }
 
     --font-family-sans-regular{
