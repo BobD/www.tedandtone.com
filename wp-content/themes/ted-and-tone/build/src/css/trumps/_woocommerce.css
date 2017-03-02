@@ -1,0 +1,220 @@
+/* Overrides on the woocommerce styles */
+.woocommerce{
+
+	& .product{
+		overflow: hidden;
+	}
+
+	& .product_title{
+		@apply --font-family-sans-light;
+		@apply --font-title-4;
+		text-transform: uppercase;
+		margin-bottom: 2rem;
+	}
+
+	& th,
+	& h2,
+	& h3,
+	& h4,
+	& .title,
+	& .quantity:before{
+		color: var(--color-gold);
+		text-transform: uppercase;
+		font-weight: normal;
+		font-size: inherit;
+		padding: 0;
+		margin: 0 0 .25rem;
+	}
+
+	& p{
+		margin: 0 0 2rem 0;
+		font-style: normal;
+	}
+	
+	& ins{
+		text-decoration: none;
+		vertical-align: middle;
+		margin: 0 .1em;
+	}
+
+	& del{
+		vertical-align: middle;
+		opacity: .65;
+	}
+
+	& .images{
+		
+		& .woocommerce-main-image{
+			& img{
+				max-width: 100%;
+				width: auto;
+				height: auto;
+			}
+		}
+	
+		& .thumbnails{
+			margin-top: 4rem;
+			display: flex;
+			max-width: 100%;
+
+			& a{
+				flex-grow: 1;
+				flex-shrink: 1;
+				display: inline-block;
+				margin-right: 1em;
+				max-width: 33%;
+
+				&:last-child{
+					margin-right: 0;
+				}
+
+				& img{
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+
+		@media (--screen-sm) {
+			float: left;
+			padding-right: 4rem;
+			max-width: 50%;
+		}
+
+	}
+
+	& .summary{
+		display: block;
+		overflow: hidden;
+		margin-bottom: 1rem;
+	}
+
+	& .shop_attributes{
+		& th,
+		& td{
+			display: block;
+			text-align: left;
+		}
+	}
+
+	& .quantity{
+		&:before{
+			content: 'Amount';
+			display: block;
+			margin-bottom: .5rem !important;
+		}
+
+		& input{
+			width: 5em;
+			margin-bottom: 1rem;
+			padding: .5em .75em;
+		}
+	}
+	
+	& .add_to_cart_button,
+	& .single_add_to_cart_button,
+	& .added_to_cart{
+		 border:none;
+		 background-color: var(--color-black-soft);
+		 color: white;
+		 text-transform: uppercase;
+		 padding: .5em .75em;
+		 font-size: inherit;
+		 font-family: inherit;
+		 cursor: pointer;
+		 margin-top: 1rem;
+		 transition: background-color ease .25s;
+		 text-decoration: none;
+
+		 &:hover{
+			background-color: var(--color-gold);
+		 }
+	}
+
+	& .upsells{
+		margin-top: 4rem;
+
+		&:before{
+			content: '';
+			display: block;
+	
+			border-top: thin solid var(--color-black-soft);
+			margin: 6rem auto 4rem;
+		}
+
+		& h2{
+			color: inherit;
+		}
+
+		& .products{
+			padding: 0;
+
+			@media (--screen-sm) {
+				display: flex;
+			}
+
+			& li{
+				text-align: center;
+				margin-right: 0;
+				margin-bottom: 2rem;
+				position: relative;
+
+				@media (--screen-sm) {
+					margin-right: 2rem;
+					margin-bottom: 0;
+					max-width: 20%;
+				}
+
+				& .woocommerce-LoopProduct-link{
+					display: block;
+				}
+
+				& img{
+					max-width: 100%;
+					height: auto;
+					margin-bottom: 1rem;
+				}
+
+				& .woocommerce-LoopProduct-link{
+					text-decoration: none;
+					color: inherit;
+				}
+
+				& .add_to_cart_button,
+				& .added_to_cart{
+					position: absolute;
+					top: 1rem;
+					left: 1rem;
+					font-size: 80%;
+					margin-top: 0;
+					opacity: 0;
+
+					transition: opacity ease .25s;
+				}
+
+				& .added_to_cart{
+					opacity: 1;
+					z-index: 1;
+				}
+
+				& .price{
+					color: var(--color-gold);
+					& .title{
+						display: none;
+					}
+				}
+
+				& h3{
+					color: inherit;
+				}
+
+				&:hover{
+					& .add_to_cart_button{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+}

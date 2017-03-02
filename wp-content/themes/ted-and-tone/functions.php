@@ -96,32 +96,45 @@ class TedAndTone extends TimberSite {
 
 	function init_woocommerce(){
 		/* References for customizing the WC templates 
+			https://docs.woocommerce.com/wc-apidocs/hook-docs.html
 			http://bradley-davis.com/woocommerce-add-text-regular-sale-price/
 			https://mikejolley.com/2016/05/10/woocommerce-remove-product-data-tabs-and-hook-content-in-sequence-instead/
 		*/
 
-		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
-
-		// add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-		add_action( 'init', array( $this, 'tat_remove_wc_breadcrumbs') );
-		add_filter( 'woocommerce_product_tabs', array( $this, 'tat_remove_wc_reviews_tab'));
 		add_action( 'after_setup_theme', array( $this, 'tat_wc_support') );
-		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_product_description_tab' );
-		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_product_additional_information_tab' );
-		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_show_product_sale_flash' );
+		
+		// Single product
+		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+		add_action( 'init', array( $this, 'tat_remove_wc_breadcrumbs') );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_product_description_tab' );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_product_additional_information_tab' );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 15 );
+
+		add_filter( 'woocommerce_product_tabs', array( $this, 'tat_remove_wc_reviews_tab'));
 		add_filter( 'woocommerce_product_description_heading', array( $this, 'tat_wc_description_heading') );
 		add_filter( 'woocommerce_product_additional_information_heading', array( $this, 'tat_wc_information_heading') );
-		add_filter('gettext', array( $this, 'tat_wc_change_checkout_btn'));
-		add_filter('ngettext', array( $this, 'tat_wc_change_checkout_btn'));
+		add_filter('woocommerce_sale_flash', array( $this, 'tat_wc_sales_flash'));
+		add_filter( 'woocommerce_get_price_html', array( $this, 'tat_wc_price_single_product') );
+		add_filter('gettext', array( $this, 'tat_wc_change_string'), 20, 3);
 
-		add_action( 'woocommerce_sidebar', 'woocommerce_upsell_display', 15 );
-		add_action( 'woocommerce_sidebar', 'woocommerce_output_related_products', 20 );
+		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 15 );
+		add_action( 'woocommerce_after_single_product', 'woocommerce_upsell_display', 15 );
+		add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 20 );
 	}
 
 	function tat_wc_support() {
     	add_theme_support( 'woocommerce' );
 	}
 
+	function tat_remove_wc_breadcrumbs() {
+    	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+	}
+
+	function tat_remove_wc_reviews_tab($tabs){
+		return [];
+	}
 
 	function tat_wc_description_heading() {
 		return 'What is it?';
@@ -131,17 +144,42 @@ class TedAndTone extends TimberSite {
 		return '';
 	}
 
-	function tat_remove_wc_reviews_tab($tabs){
-		return [];
+	function tat_wc_sales_flash(){
+		return false;
 	}
 
-	function tat_wc_change_checkout_btn($checkout_btn){
-	  	$checkout_btn= str_ireplace('Add to cart', 'Add to shoppingbag', $checkout_btn);
-  		return $checkout_btn;	
+	function tat_wc_price_single_product($price){
+		global $product;
+
+		$labels = array();
+		$labels[] =  '<div class="title">price</div>';
+
+		if($product->is_on_sale()){
+			$labels[] = '<span class="label label--sale">Sale!</span>';
+		}
+
+		$labels[] = $price;
+
+		$result = join('', $labels);
+		return $result;
 	}
 
-	function tat_remove_wc_breadcrumbs() {
-    	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+	function tat_wc_change_string($translated_text, $text, $domain){
+
+		switch ( $translated_text ) {
+			case 'Add to cart' :
+				$translated_text = str_ireplace('Add to cart', 'Add to shoppingbag', $translated_text);
+				break;
+			case 'View Cart' :
+				$translated_text = str_ireplace('View Cart', 'View your shoppingbag', $translated_text);
+				break;
+			case 'You may also like&hellip;' :
+				$translated_text = str_ireplace('You may also like&hellip;', "Hey! Maybe you'll also like these:", $translated_text);
+				break;
+			break;
+		}
+
+  		return $translated_text;	
 	}
 
 }

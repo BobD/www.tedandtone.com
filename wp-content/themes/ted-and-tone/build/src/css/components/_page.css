@@ -25,11 +25,14 @@
 }
 
 .page__intro{
-	margin: 4rem var(--page-side-padding);
-	padding: 0 0 2.5rem 0;
+	margin: 3rem var(--page-side-padding) 4rem;
+	padding: 0 0 2rem 0;
 	text-align: center;
-	line-height: 2.5;
 	border-bottom: thin solid var(--color-black-soft);
+
+	& .title{
+		line-height: 2.25;
+	}
 
 	@media (--screen-sm) {
 		padding-left: 4rem;

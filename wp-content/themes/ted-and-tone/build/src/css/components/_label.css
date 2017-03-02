@@ -1,0 +1,14 @@
+.label{
+	text-transform: uppercase;
+	background-color: var(--color-gold);
+	color: white;
+	padding: .25em .75em;
+	margin: 0 1em;
+	border-radius: .25em;
+	font-size: 85%;
+	vertical-align: middle;
+
+	&--sale{
+		margin-left: 0;
+	}
+}
