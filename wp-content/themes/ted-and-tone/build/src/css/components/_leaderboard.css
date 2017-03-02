@@ -12,7 +12,6 @@
   		&:before {
     		padding-top: calc((480 / 1024) * 100%);
   		}
-
 	}
 }
 

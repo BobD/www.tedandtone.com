@@ -17,23 +17,46 @@ $templates = array();
 
 if(is_woocommerce()){
 	TimberHelper::function_wrapper('get_woocommerce_term_meta');
+	TimberHelper::function_wrapper('get_post_thumbnail_id');
+	TimberHelper::function_wrapper('get_category_link');
+	TimberHelper::function_wrapper('wp_get_attachment_image_url');
 	TimberHelper::function_wrapper('wp_get_attachment_image_srcset');
+	TimberHelper::function_wrapper('wp_get_attachment_image_sizes');
 	TimberHelper::function_wrapper('category_description');
 	TimberHelper::function_wrapper('get_field');
 
+	// Reference: https://docs.woocommerce.com/document/conditional-tags/
+	// Reference: https://github.com/timber/timber/wiki/WooCommerce-Integration
 	if (is_singular('product')) {
-		// Reference: https://github.com/timber/timber/wiki/WooCommerce-Integration
 		$timberContext['post'] = Timber::get_post();
-
-		// Reference: https://docs.woocommerce.com/wc-apidocs/class-WC_Product.html
 		$timberContext['product'] = wc_get_product( $timberContext['post']->ID );
-
 		$terms = get_the_terms( $timberContext['post']->ID, 'product_cat' );
         $timberContext['category'] = get_term(reset($terms)->term_id, 'product_cat' );
+		$templates[] =  'page-shop-product.twig';
+	}
 
-		$templates[] =  'page-product-single.twig';
-	}else{
-		$templates[] =  'page-product-archive.twig';
+	if(is_shop()){
+		// Reference: https://gist.github.com/Bradley-D/7287723
+		$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+		$timberContext['post'] = Timber::get_post($shop_page_id);
+		$timberContext['intro'] = get_the_excerpt($shop_page_id);
+
+		$shop_categories = get_categories( array(
+	         'taxonomy'     => 'product_cat',
+	         'orderby'      => 'name',
+	         'show_count'   => 0,
+	         'pad_counts'   => 0,
+	         'hierarchical' => 1,
+	         'title_li'     => '',
+	         'hide_empty'   => 0
+	  	));
+
+	  	$timberContext['categories'] = $shop_categories;
+		$templates[] =  'page-shop-home.twig';
+	}
+
+	if(is_product_category()){
+		$templates[] =  'page-shop-categories.twig';
 	}
 }else{
 	$templates[] =  'page-plugin.twig';

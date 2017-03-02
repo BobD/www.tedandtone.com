@@ -17,7 +17,6 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['intro'] = get_the_excerpt();
 $sidebar = get_field('sidebar');
-
 if ($sidebar) { 
 	$context['sidebar'] = $sidebar;
 } 

@@ -1,29 +1,41 @@
 .categories{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.categories__item{
-
+	@media (--screen-sm) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 .categories__link{
-	
+	color: inherit;
+	text-align: center;
+	text-decoration: none;	
+	color: var(--color-gold);
+	margin-right: 2rem;
+	margin-bottom: 4rem;
+	flex-shrink: 0;
+
+	@media (--screen-sm) {
+		flex-basis: calc(33% - 2rem);
+	}
+
+	@media (--screen-md) {
+		flex-basis: calc(25% - 2rem);
+
+	}
 }
 
 .categories__image{
-
+	max-width: 100%;
 }
 
 .categories__info{
-	
-}
-
-.categories__caption{
-
+	margin-top: 2rem;
 }
 
 .categories__title{
+
+}
+
+.categories__caption{
 
 }

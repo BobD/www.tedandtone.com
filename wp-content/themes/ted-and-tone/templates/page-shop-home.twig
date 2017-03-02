@@ -1,0 +1,48 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<div class="page">
+
+		<header class="page__leaderboard">
+			{% include 'includes/leaderboard.twig' with {'post': post, 'title_tag': 'h1'} %}
+		</header>
+
+		{% if intro %}
+			<div class="page__intro">
+				<div class="title">{{intro}}</div>
+			</div>
+		{% endif %}
+
+		<div class="page__container">
+			
+			{% if post.content %}
+			<div class="page__main">
+				{{post.content}}
+			</div>
+			{% endif %}
+
+			<nav class="page__categories categories">
+				{% for cat in categories %}
+					{% set thumbnail_id = get_woocommerce_term_meta(cat.term_id, 'thumbnail_id', true) %}
+					{% set thumbnail_src = wp_get_attachment_image_url(cat.term_id) | default('/wp-content/plugins/woocommerce/assets/images/placeholder.png') %}
+					{% set thumbnail_srcset = wp_get_attachment_image_srcset(thumbnail_id) %}
+					{% set thumbnail_sizes = wp_get_attachment_image_sizes(thumbnail_id) %}
+				
+					<a href="{{get_category_link(cat.term_id)}}" class="categories__link">
+						
+						<img src="{{thumbnail_src}}" alt="shopt category {{cat.name}}" class="categories__image" srcset="{{thumbnail_srcset}}" sizes="{{thumbnail_sizes}}">
+			
+						<div class="categories__info">
+							<div class="categories__title title">{{cat.name}}</div>
+						</div>
+
+					</a>
+				{% endfor %}
+			</nav>
+		</div>
+
+
+	</div>
+
+{% endblock %}

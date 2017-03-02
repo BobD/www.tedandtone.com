@@ -38,11 +38,9 @@ class TedAndTone extends TimberSite {
 	}
 
 	function register_post_types() {
-		//this is where you can register custom post types
 	}
 
 	function register_taxonomies() {
-		//this is where you can register custom taxonomies
 	}
 
 	function register_menus(){
@@ -55,16 +53,25 @@ class TedAndTone extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
+		// References: https://www.skyverge.com/blog/get-woocommerce-page-urls/
+
+		global $woocommerce;
+		$account_page_id = get_option( 'woocommerce_myaccount_page_id' );
+
 		$context['env'] = WP_ENV;
 		$context['site'] = $this;
 		$context['user_logged_in'] = is_user_logged_in();
 		$context['is_mobile'] = wp_is_mobile();
+		$context['shop_cart_url'] = $woocommerce->cart->get_cart_url();
+		$context['shop_checkout_url'] = $woocommerce->cart->get_checkout_url();
+
+		if ( $account_page_id ) {
+		  $context['shop_account_url'] = get_permalink( $account_page_id );
+		}
 
 		foreach(get_registered_nav_menus() as $k => $v) {
 		    $context['menu_' . $k] = new TimberMenu($k);
 		}
-
-		// echo '<pre>' . var_export($context['menu_contact']) . '</pre>';
 
 		return $context;
 	}

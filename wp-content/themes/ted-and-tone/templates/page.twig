@@ -16,14 +16,18 @@
 
 		<div class="page__container">
 
-			{% if post.sidebar %}
-				<aside class="page__sidebar">
-					{{post.sidebar|shortcodes}}
-				</aside>
-			{% endif %}
-
 			<div class="page__content">
-				{{post.content}}
+
+				{% if post.sidebar %}
+					<aside class="page__sidebar">
+						{{post.sidebar|shortcodes}}
+					</aside>
+				{% endif %}
+
+				<div class="page__main">
+					{{post.content}}
+				</div>
+
 			</div>
 
 		</div>
