@@ -1,6 +1,6 @@
 {% set category_id = category.term_id %}
 
-<div class="leaderboard leaderboard--{{category_id}} {% if modifier %} {{modifier}} {% endif %} ">
+<div class="leaderboard leaderboard--{{category_id}} {% if modifier %} {{modifiers}} {% endif %} ">
 	{% set thumbnail_id = get_woocommerce_term_meta(category_id, 'thumbnail_id', true) %}
 	{% set sizes = wp_get_attachment_image_srcset(thumbnail_id)|attachment_background_styles %}
 	

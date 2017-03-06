@@ -9,8 +9,12 @@
  * @since   Timber 0.1
  */
 
-TimberHelper::function_wrapper('get_post_thumbnail_id');
 TimberHelper::function_wrapper('wp_get_attachment_image_srcset');
+TimberHelper::function_wrapper('wp_get_attachment_image_sizes');
+TimberHelper::function_wrapper('wp_get_attachment_image_url');
+TimberHelper::function_wrapper('get_woocommerce_term_meta');
+TimberHelper::function_wrapper('get_post_thumbnail_id');
+TimberHelper::function_wrapper('get_category_link');
 TimberHelper::function_wrapper('get_permalink');
 TimberHelper::function_wrapper('get_field');
 
@@ -35,7 +39,7 @@ $context['quote'] = get_the_excerpt();
 $context['intro_blocks'] = get_field('intro_blocks');
 $context['categories'] = $categories;
 
-$templates = array( 'home.twig' );
+$templates = array( 'front-page.twig' );
 
 if ( is_home() ) {
 	array_unshift( $templates, 'blog.twig' );

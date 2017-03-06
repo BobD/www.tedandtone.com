@@ -1,4 +1,4 @@
-<div class="leaderboard leaderboard--{{post.ID}} {% if modifier %} {{modifier}} {% endif %} ">
+<div class="leaderboard leaderboard--{{post.ID}} {% if modifier %} {{modifiers}} {% endif %} ">
 	{% set thumbnail_id = get_post_thumbnail_id(post.ID) %}
 	{% set sizes = wp_get_attachment_image_srcset(thumbnail_id)|attachment_background_styles %}
 	

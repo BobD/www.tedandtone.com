@@ -1,0 +1,28 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<div class="page">
+				
+		{% for block in intro_blocks %}
+			<a href="{{get_permalink(block.ID)}}" class="page__leaderboard">
+				{% include 'includes/leaderboard.twig' with {'post': block, 'modifiers': loop.index0 is odd ? 'leaderboard--info-left' : 'eaderboard--info-right' } %}
+			</a>
+		{% endfor %}
+
+		{% if quote %}
+			<blockquote  class="page__quote quote">
+				<div class="quote__title title title--small">{{quote}}</div>
+				<div class="quote__source">{{get_field('caption', post.ID)}}</div>
+			</blockquote >
+		{% endif %}
+
+		<div class="page__box">
+			{% if categories %}
+				{% include 'includes/categories.twig' with {'categories': categories, 'modifiers': 'page__categories' } %}
+			{% endif %}
+		</div>
+
+	</div>
+
+{% endblock %}

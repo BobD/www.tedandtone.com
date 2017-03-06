@@ -21,4 +21,4 @@ if ($sidebar) {
 	$context['sidebar'] = $sidebar;
 } 
 
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
+Timber::render( array( 'page-' . $post->post_name . '.twig', 'page-text.twig' ), $context );

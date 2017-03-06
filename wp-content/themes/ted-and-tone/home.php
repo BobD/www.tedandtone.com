@@ -8,7 +8,6 @@
  * @subpackage  Timber
  * @since   Timber 0.1
  */
-
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $templates = array( 'blog.twig' );

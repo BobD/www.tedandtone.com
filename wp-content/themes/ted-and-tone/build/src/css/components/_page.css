@@ -1,4 +1,6 @@
 :root{
+	--page-sm-margin: 4rem;
+	--page-box-small-margin: 10rem;
 	--page-column-gap: 3rem;
 }
 
@@ -25,29 +27,16 @@
 }
 
 .page__intro{
-	margin: 3rem var(--page-side-padding) 4rem;
-	padding: 0 0 2rem 0;
+	margin: 3rem var(--page-side-padding);
 	text-align: center;
-	border-bottom: thin solid var(--color-black-soft);
 
 	& .title{
 		line-height: 2.25;
 	}
+}
 
-	@media (--screen-sm) {
-		padding-left: 4rem;
-		padding-right: 4rem;
-	}
-
-	@media (--screen-md) {
-		padding-left: 10rem;
-		padding-right: 10rem;
-	}
-
-	@media (--screen-lg) {
-		margin-left: 10rem;
-		margin-right: 10rem;
-	}
+.page__main{
+	margin-top: 4rem;
 }
 
 .page__quote{
@@ -63,15 +52,20 @@
 	}
 }
 
-.page__container{
-	padding: 0 var(--page-side-padding);
+.page__box{
+	margin-left: var(--page-side-padding);
+	margin-right: var(--page-side-padding);
 
 	@media (--screen-sm) {
-		padding: 0 var(--page-side-padding);
+		margin-left: var(--page-sm-margin);
+		margin-right: var(--page-sm-margin);
 	}
-	
-	@media (--screen-lg) {
-		padding: 0 0 0 10rem;
+
+	&--small{
+		@media (--screen-md) {
+			margin-left: var(--page-box-small-margin);
+			margin-right: var(--page-box-small-margin);
+		}
 	}
 }
 
@@ -99,7 +93,7 @@
 	}
 }
 
-.page__main{
+.page__text{
 	flex: 3;
 
 	& p{
@@ -121,7 +115,7 @@
 	}
 }
 
-.page__sidebar + .page__main{
+.page__sidebar + .page__text{
 	@media (--screen-sm) {
 		column-count: 1;
 	}
@@ -131,11 +125,16 @@
 	}
 }
 
-.page__main + .page__categories{
-	border-top: thin solid var(--color-black-soft);
-	margin-top: 4rem;
-	padding-top: 4rem;
+.page__categories{
+	margin-top: 5rem;
 }
 
-.page__categories{
+.page__box + .page__categories{
+	margin-top: 6rem;
+}
+
+.page__ruler{
+	border: none;
+	border-bottom: thin solid var(--color-grey);
+	margin: 4rem 0;
 }
