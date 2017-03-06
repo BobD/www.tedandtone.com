@@ -1,0 +1,20 @@
+:root {
+
+	--box: {
+		margin-left: var(--page-side-padding);
+		margin-right: var(--page-side-padding);
+
+		@media (--screen-sm) {
+			margin-left: var(--page-sm-margin);
+			margin-right: var(--page-sm-margin);
+		}
+	};
+
+	--box-small: {
+		@pply --box;
+		@media (--screen-md) {
+			margin-left: var(--page-box-small-margin);
+			margin-right: var(--page-box-small-margin);
+		}
+	};
+}

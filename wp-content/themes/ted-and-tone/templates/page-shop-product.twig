@@ -8,12 +8,13 @@
 			{% include 'includes/leaderboard-category.twig' with {'category': category, 'title_tag': 'h1'} %}
 		</header>
 
-		<div class="page__intro">
+		<div class="page__box page__box--small page__intro">
 			<div class="title">{{category_description(category.term_id)}}</div>
+			<hr class="page__ruler"/>
 		</div>
 
 		<div class="page__box">
-			<div class="shop shop--product woocommerce">
+			<div class="shop shop--product woocommerce-trumps">
 				{{content}}
 			</div>
    	 	</div>

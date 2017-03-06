@@ -126,9 +126,8 @@ class TedAndTone extends TimberSite {
 		add_filter('gettext', array( $this, 'tat_wc_change_string'), 20, 3);
 
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
-		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 15 );
+		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		add_action( 'woocommerce_after_single_product', 'woocommerce_upsell_display', 15 );
-		add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 20 );
 	}
 
 	function tat_wc_support() {

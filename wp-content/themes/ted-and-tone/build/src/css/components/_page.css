@@ -53,19 +53,10 @@
 }
 
 .page__box{
-	margin-left: var(--page-side-padding);
-	margin-right: var(--page-side-padding);
-
-	@media (--screen-sm) {
-		margin-left: var(--page-sm-margin);
-		margin-right: var(--page-sm-margin);
-	}
+	@apply --box;
 
 	&--small{
-		@media (--screen-md) {
-			margin-left: var(--page-box-small-margin);
-			margin-right: var(--page-box-small-margin);
-		}
+		@apply --box-small;
 	}
 }
 
@@ -134,9 +125,7 @@
 }
 
 .page__ruler{
-	border: none;
-	border-bottom: thin solid var(--color-grey);
-	margin: 4rem 0;
+	@apply --ruler;
 }
 
 .page__pagination{

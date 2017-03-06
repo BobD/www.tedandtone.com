@@ -1,5 +1,5 @@
 /* Overrides on the woocommerce styles */
-.woocommerce{
+.woocommerce-trumps{
 
 	& .product{
 		overflow: hidden;
@@ -86,7 +86,6 @@
 	& .summary{
 		display: block;
 		overflow: hidden;
-		margin-bottom: 1rem;
 	}
 
 	& .shop_attributes{
@@ -133,6 +132,7 @@
 
 	& .upsells{
 		margin-top: 4rem;
+		display: block;
 
 		&:before{
 			content: '';
@@ -140,10 +140,14 @@
 	
 			border-top: thin solid var(--color-black-soft);
 			margin: 6rem auto 4rem;
+
+			@apply --box-small;
+			@apply --ruler;
 		}
 
 		& h2{
 			color: inherit;
+			margin-bottom: 2rem;
 		}
 
 		& .products{

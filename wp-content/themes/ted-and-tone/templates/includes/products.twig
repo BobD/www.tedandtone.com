@@ -1,5 +1,4 @@
 <nav class="products {{modifiers}}">
-
 	{% for product in products %}
 		{% set wcProduct = wc_get_product(product.ID) %}
 		{% set thumbnail_id = get_post_thumbnail_id(product.ID, 'thumbnail_id', true) %}
