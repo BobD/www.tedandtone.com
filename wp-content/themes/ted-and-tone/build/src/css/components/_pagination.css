@@ -1,0 +1,55 @@
+.pagination{
+/*	@apply --font-size-large;*/
+	font-style: normal;
+}
+
+.pagination__prev,
+.pagination__next,
+.pagination__list,
+.pagination__item{
+	display: inline-block;
+	color: inherit;
+}
+
+.pagination__prev,
+.pagination__next{
+	text-decoration: none;
+	text-transform: uppercase;
+	vertical-align: middle;
+	font-size: 85%;
+	margin: 0 1em;
+
+	&.invisible{
+		display: none;
+	}
+}
+
+.pagination__icon{
+	margin: 0 .5em;
+}
+
+.pagination__list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.pagination__item{
+	margin: 0 .25em;
+}
+
+.pagination__link{
+	color: inherit;
+	text-decoration: none;
+
+	&:after{
+		content: '';
+		display: block;
+		padding-top: .1em;
+		border-bottom: thin solid currentColor;
+	}
+}
+
+.pagination__current{
+	color: var(--color-gold);
+}

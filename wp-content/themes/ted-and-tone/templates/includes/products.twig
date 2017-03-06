@@ -1,0 +1,26 @@
+<nav class="products {{modifiers}}">
+
+	{% for product in products %}
+		{% set wcProduct = wc_get_product(product.ID) %}
+		{% set thumbnail_id = get_post_thumbnail_id(product.ID, 'thumbnail_id', true) %}
+		{% set thumbnail_src = wp_get_attachment_image_url(product.ID) | default('/wp-content/plugins/woocommerce/assets/images/placeholder.png') %}
+		{% set thumbnail_srcset = wp_get_attachment_image_srcset(thumbnail_id) %}
+		{% set thumbnail_sizes = wp_get_attachment_image_sizes(thumbnail_id) %}
+	
+		<a href="{{get_permalink(product.ID)}}" class="products__link">
+			<img src="{{thumbnail_src}}" alt="shopt category {{cat.name}}" class="products__image" srcset="{{thumbnail_srcset}}" sizes="{{thumbnail_sizes}}">
+
+			<div class="products__info">
+				<div class="products__title title title--big">{{product.title}}</div>
+				<div class="products__price title title--small">
+					{% if wc_get_product(product.ID).is_on_sale %}
+						<del>{{wc_price(wcProduct.regular_price)}}</del>
+						<ins>{{wc_price(wcProduct.get_price)}}</ins>
+					{% else %}
+						{{wc_price(wcProduct.get_price)}}
+					{% endif %}
+				</div>
+			</div>
+		</a>
+	{% endfor %}
+</nav>

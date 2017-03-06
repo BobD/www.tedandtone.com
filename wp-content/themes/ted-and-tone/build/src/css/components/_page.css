@@ -12,11 +12,11 @@
 	}
 
 	@media (--screen-md) {
-		padding-bottom: 10rem;
+		padding-bottom: 8rem;
 	}
 
 	@media (--screen-lg) {
-		padding-bottom: 16rem;
+		padding-bottom: 12rem;
 	}
 }
 
@@ -136,5 +136,10 @@
 .page__ruler{
 	border: none;
 	border-bottom: thin solid var(--color-grey);
+	margin: 4rem 0;
+}
+
+.page__pagination{
+	text-align: center;
 	margin: 4rem 0;
 }
