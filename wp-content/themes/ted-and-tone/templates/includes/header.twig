@@ -22,5 +22,5 @@
 </div>
 
 <a href="{{shop_cart_url}}" class="link title title--small header__bag">
-	Shoppingbag
+	Shoppingbag {% if shop_cart_total > 0 %}({{shop_cart_total}}){% endif %}
 </a>

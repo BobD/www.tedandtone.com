@@ -32,6 +32,8 @@ if(is_account_page()){
 	$templates[] =  is_user_logged_in() ? 'page-shop-account.twig' : 'page-shop-login.twig' ;
 }else if(is_cart()){
 	$templates[] = 'page-shop-cart.twig' ;
+}else if(is_checkout()){
+	$templates[] = 'page-shop-checkout.twig' ;
 }else{
 	$templates[] =  'page-' . $post->post_name . '.twig';
 	$templates[] =  'page-text.twig';

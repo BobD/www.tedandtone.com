@@ -33,6 +33,7 @@
 
 	--button-important: {
 		@apply --button;
+		background-color: var(--color-gold);
 
 		&:hover{
 			background-color: var(--color-black-soft);

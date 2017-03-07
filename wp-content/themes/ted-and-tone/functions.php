@@ -64,6 +64,7 @@ class TedAndTone extends TimberSite {
 		$context['is_mobile'] = wp_is_mobile();
 		$context['shop_url'] = get_permalink( woocommerce_get_page_id( 'shop' ) );
 		$context['shop_cart_url'] = $woocommerce->cart->get_cart_url();
+		$context['shop_cart_total'] = $woocommerce->cart->cart_contents_count;
 		$context['shop_checkout_url'] = $woocommerce->cart->get_checkout_url();
 
 		if ( $account_page_id ) {
@@ -183,8 +184,10 @@ class TedAndTone extends TimberSite {
 				$translated_text = str_ireplace('View Cart', 'View your shoppingbag', $translated_text);
 				break;
 			case 'You may also like&hellip;' :
-				$translated_text = str_ireplace('You may also like&hellip;', "Hey! Maybe you'll also like these:", $translated_text);
+				$translated_text = str_ireplace('You may also like&hellip;', "Hey! Maybe you'll also like these:", $translated_text);;
 				break;
+			case 'Cart Totals' :
+				$translated_text = str_ireplace('Cart Totals', 'Total', $translated_text);
 			break;
 		}
 

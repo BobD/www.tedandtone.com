@@ -240,7 +240,8 @@
 			display: none;
 		}
 	}
-
+	
+	& input.button.alt,
 	& a.button.alt{
 		@apply --button-important;
 	}
@@ -382,10 +383,27 @@
 			}
 		}
 
+		& .cart-empty{
+			width: 100%;
+		}
+
 		@media (--screen-sm) {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
+		}
+	}
+}
+
+.checkout{
+	@media (--screen-sm) {
+		& .col2-set{
+			display: flex;
+			margin-bottom: 3rem;
+		}
+
+		& .col-1{
+			margin-right: 3rem;
 		}
 	}
 }
@@ -401,7 +419,8 @@
 	&:before{
 		display: none;
 	}
-
+	
+	& a,
 	& .button{
 		float: none;
 		order: 1;
