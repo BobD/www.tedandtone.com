@@ -58,7 +58,7 @@
 
 
 .footer__menu-item{
-	line-height: 2.3rem;
+	@apply --navigation;
 }
 
 .footer__menu-sub-list{

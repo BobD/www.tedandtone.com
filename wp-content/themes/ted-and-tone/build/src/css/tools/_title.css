@@ -1,0 +1,34 @@
+:root {
+
+	--title: {
+		@apply --font-family-sans-regular;
+		@apply --font-title-1;
+
+		text-transform: uppercase;
+		margin: .1em 0;
+		letter-spacing: .1em;
+
+		@media (--screen-sm) {
+			@apply --font-title-2;
+		}
+	}
+
+	--title-small: {
+		@apply --title;
+		@apply --font-title-1;
+
+		@media (--screen-sm) {
+			@apply --font-title-1;
+		}
+	}
+
+	--title-big: {
+		@apply --title;
+		@apply --font-family-sans-light;
+		@apply --font-title-3;
+
+		@media (--screen-sm) {
+			@apply --font-title-4;
+		}
+	}
+}

@@ -66,6 +66,7 @@ if(is_woocommerce()){
         $timberContext['pagination'] = Timber::get_pagination();
 		$templates[] = 'page-shop-categories.twig';
 	}
+
 }else{
 	$templates[] =  'page-plugin.twig';
 }

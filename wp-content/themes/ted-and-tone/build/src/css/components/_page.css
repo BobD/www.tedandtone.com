@@ -104,6 +104,14 @@
 	@media (--screen-md) {
 		column-count: 3;
 	}
+
+	&--no-columns{
+		column-count: auto !important;
+	}
+}
+
+.page--account-dashboard .page__text{
+	flex: 5;
 }
 
 .page__sidebar + .page__text{

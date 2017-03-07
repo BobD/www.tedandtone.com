@@ -1,0 +1,37 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<article class="page page--account-dashboard">
+		
+		<header class="page__leaderboard">
+			{% include 'includes/leaderboard.twig' with {'post': post, 'title_tag': 'h1'} %}
+		</header>
+
+		{% if intro %}
+			<div class="page__box page__box--small page__intro">
+				<div class="title">{{intro}}</div>
+				<hr class="page__ruler"/>
+			</div>
+		{% endif %}
+
+		<div class="page__main">
+			<div class="page__box page__box--small">
+				<div class="page__content">
+					<aside class="page__sidebar">
+						{{wc_print_notices}}
+						{{do_action('woocommerce_account_navigation')}}
+					</aside>
+
+					<div class="page__text {% if not is_shop_dashboard %}page__text--no-columns{% endif %}">
+						{{do_shortcode('[woocommerce_my_account]')}}
+						{% if is_shop_dashboard %}
+							{{post.content}}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+
+{% endblock %}

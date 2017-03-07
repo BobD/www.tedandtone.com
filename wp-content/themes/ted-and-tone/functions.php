@@ -62,6 +62,7 @@ class TedAndTone extends TimberSite {
 		$context['site'] = $this;
 		$context['user_logged_in'] = is_user_logged_in();
 		$context['is_mobile'] = wp_is_mobile();
+		$context['shop_url'] = get_permalink( woocommerce_get_page_id( 'shop' ) );
 		$context['shop_cart_url'] = $woocommerce->cart->get_cart_url();
 		$context['shop_checkout_url'] = $woocommerce->cart->get_checkout_url();
 
@@ -72,6 +73,8 @@ class TedAndTone extends TimberSite {
 		foreach(get_registered_nav_menus() as $k => $v) {
 		    $context['menu_' . $k] = new TimberMenu($k);
 		}
+
+		// var_dump($context['menu_about'] );
 
 		return $context;
 	}

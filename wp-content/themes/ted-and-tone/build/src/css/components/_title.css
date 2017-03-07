@@ -1,32 +1,11 @@
 .title{
-	@apply --font-family-sans-regular;
-	text-transform: uppercase;
-	margin: .1em 0;
-	letter-spacing: .1em;
-
-	@apply --font-title-2;
+	@apply --title;
 
 	&--small{
-		@apply --font-title-1;
+		@apply --title-small;
 	}
 
 	&--big{
-		@apply --font-family-sans-light;
-		@apply --font-title-3;
-	}
-
-	@media (--screen-sm) {
-		margin: .25em 0;
-
-		@apply --font-title-2;
-
-		&--small{
-			@apply --font-title-1;
-		}
-
-		&--big{
-			@apply --font-family-sans-light;
-			@apply --font-title-4;
-		}
+		@apply --title-big;
 	}
 }

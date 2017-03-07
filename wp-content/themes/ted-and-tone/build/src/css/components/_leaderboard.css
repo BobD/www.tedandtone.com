@@ -30,12 +30,14 @@
 	position: absolute;
 	right: 2rem;
 	bottom: 2rem;
+	left: 2rem;
 	background: white;
 	padding: 2rem 6rem;
 	text-align: center;
 
 	@media (--screen-sm) {
 		padding: 2.5rem 7.5rem;
+		left: auto;
 	}
 }
 

@@ -7,11 +7,13 @@
                 <span></span>
                 <span></span>
             </div>
-            <span class="menu__title header__menu-title">{{menu_shop.name}}</span>
+            <span class="menu__title header__menu-title">
+                <a href="{{shop_url}}" class="menu__title-link">{{menu_shop.name}}</a>
+            </span>
         </label>
     	<ul class="menu__list">
             {% for item in menu_shop.items %}
-            	<li class="menu__item">
+            	<li class="menu__item {% if 'current-menu-item' in item.classes %}is-active{% endif %}">
                 	<a class="menu__link link title title--small" href="{{item.get_link}}">{{item.title}}</a>
             	</li>
         	{% endfor %}

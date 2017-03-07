@@ -1,4 +1,4 @@
-/* Overrides on the woocommerce styles */
+/* Overrides on the default woocommerce styles */
 .woocommerce-trumps{
 
 	& .product{
@@ -113,21 +113,7 @@
 	& .add_to_cart_button,
 	& .single_add_to_cart_button,
 	& .added_to_cart{
-		 border:none;
-		 background-color: var(--color-black-soft);
-		 color: white;
-		 text-transform: uppercase;
-		 padding: .5em .75em;
-		 font-size: inherit;
-		 font-family: inherit;
-		 cursor: pointer;
-		 margin-top: 1rem;
-		 transition: background-color ease .25s;
-		 text-decoration: none;
-
-		 &:hover{
-			background-color: var(--color-gold);
-		 }
+		@apply --button;
 	}
 
 	& .upsells{
@@ -220,5 +206,134 @@
 			}
 		}
 	}
+}
 
+.woocommerce{
+	& h1,
+	& h2,
+	& h3,
+	& legend{
+		@apply --title-big;
+		padding: 0;
+
+		&:first-child{
+			margin-top: 0;
+		}
+	}
+
+	& a[href]{
+		@apply --link-underline;
+	}
+
+	& a.button,
+	& input.button{
+		@apply --button;
+		margin-top: 0;
+
+		&:after{
+			display: none;
+		}
+	}
+
+
+	& form{
+		&,
+		&.login{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			
+			& p,
+			& .form-row{
+				margin: 0 0 1rem 0;
+				padding: 0;
+			}
+
+			& .form-row{
+				width: 100%;
+
+			}
+			
+			& input[type='text'],
+			& input[type='email'],
+			& input[type='password'],
+			& input[type='tel']{
+				@apply --font-family-sans-regular;
+				font-size: inherit;
+				padding: .5em;
+				border: thin solid var(--color-grey);
+				background-color: transparent !important;
+
+				@media (--screen-md) {
+					max-width: 24em;
+				}
+			}
+
+			& input[type='password']{
+				max-width: 14em;
+			}
+
+			& label{
+				@apply --title-small;
+			}
+
+			& fieldset{
+				border: 0;
+				padding: 0;
+				margin-top: 3rem;
+			}
+
+			& .select2-container {
+				@apply --font-family-sans-regular;
+				font-size: inherit;
+				max-width: 24em;
+			}
+
+			& .select2-choice{
+				border-radius: 0;
+				border: thin solid var(--color-grey);
+			}
+		}
+
+		&.login{
+			& input[type='password']{
+				max-width: none;
+			}
+		}
+	}
+}
+
+.woocommerce-info{
+	border-top: none;
+	padding: 0 !important;
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+
+	&:before{
+		display: none;
+	}
+
+	& .button{
+		float: none;
+		order: 1;
+		display: inline-block;
+		margin: 0 1rem !important;
+	}
+}
+
+.woocommerce-MyAccount-navigation{
+	& ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	& li{
+		@apply --navigation;
+	}
+
+	& a{
+		@apply --link;
+	}
 }

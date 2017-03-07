@@ -1,0 +1,22 @@
+:root {
+	
+	--button: {
+		 border:none;
+		 background-color: var(--color-black-soft);
+		 color: white;
+		 text-transform: uppercase;
+		 padding: .5em .75em;
+		 font-size: inherit;
+		 font-family: inherit;
+		 cursor: pointer;
+		 margin-top: 1rem;
+		 transition: background-color ease .25s;
+		 text-decoration: none;
+
+		 &:hover{
+			background-color: var(--color-gold);
+			color: white;
+		 }
+	}
+
+}

@@ -1,0 +1,33 @@
+:root {
+	--link{
+		position: relative;
+		color: inherit;
+		text-decoration: none;
+
+		&:after{
+		    content: '';
+		    display: block;
+		    position: absolute;
+		    top: 105%;
+		    left: -1%;
+		    right: 1%;
+		    width: 0%;
+		    border-bottom: 1px dotted currentColor;
+		    transition: width .5s ease;
+		}
+
+		&:hover{
+			&:after{
+				width: 100%;
+			}
+		}
+	}
+
+	--link-underline{ 
+		@apply --link;
+
+		&:after{
+		   width: 100%;
+		}
+	}
+}

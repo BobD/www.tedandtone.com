@@ -41,31 +41,39 @@
   		line-height: 3rem;
   	};
 
-    --font-family-sans-light{
+    --font-family-sans-light: {
       font-family: 'Roboto', sans-serif;
-      font-weight: 400;
+      font-weight: 300;
       font-style: normal;
     }
 
-    --font-family-sans-regular{
+    --font-family-sans-regular: {
       font-family: 'Roboto', sans-serif;
       font-style: normal;
     }
 
-    --font-family-sans-bold{
+    --font-family-sans-bold: {
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
       font-style: normal;
     }
 
-    --font-family-serif{
+    --font-family-serif: {
       font-family: Georgia, Times, "Times New Roman", serif;
       font-style: italic;
     }
 
-    --font-family-serif-bold{
+    --font-family-serif-bold: {
       font-family: Georgia, Times, "Times New Roman", serif;
       font-weight: 700;
       font-style: italic;
+    }
+
+    --navigation: {
+        line-height: 2.3rem;
+
+        &.is-active{
+          color: var(--color-gold);
+        }
     }
 }

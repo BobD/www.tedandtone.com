@@ -4,7 +4,7 @@
             <div class="title title--small footer__title">{{menu.name}}</div>
             <ul class="footer__menu-list">        
                 {% for item in menu.items %}
-                    <li class="footer__menu-item">
+                    <li class="footer__menu-item {% if 'current-menu-item' in item.classes %}is-active{% endif %}">
                         <a class="link footer__menu-link" href="{{item.get_link}}">{{item.title}}</a>
                         {% if item.children %}
                             <ul class="footer__menu-sub-list">
