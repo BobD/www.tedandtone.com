@@ -3,6 +3,24 @@
 }
 
 .header{
+
+}
+
+.header__logo{
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	width: 22.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3rem;
+
+	@media (--screen-sm) {
+		width: 28.5rem;
+	}
+}
+
+.header__navigation{
 	position: relative;
 	color: white;
 	display: flex;
@@ -21,7 +39,7 @@
 		background: var(--color-black);
 		height: var(--header_line-height);
 		z-index: -1;
-	}
+	}	
 }
 
 .header__menu-title{

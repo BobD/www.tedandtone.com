@@ -254,6 +254,25 @@ input:checked  ~ .menu__label > .menu__hamburger > span:nth-child(3) {
             transform: rotate(-45deg) translate(0, .25em);
 }
 .header{
+
+}
+.header__logo{
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	width: 225px;
+	width: 22.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-bottom: 3rem
+}
+@media (min-width: 768px) {
+    .header__logo {
+        width: 28.5rem;
+    }
+	}
+.header__navigation{
 	position: relative;
 	color: white;
 	display: -webkit-box;
@@ -270,9 +289,9 @@ input:checked  ~ .menu__label > .menu__hamburger > span:nth-child(3) {
 	    -ms-flex-align: center;
 	        align-items: center;
 	height: 30px;
-	height: 3rem
+	height: 3rem	
 }
-.header:before {
+.header__navigation:before {
     content: '';
     display: block;
     position: absolute;
