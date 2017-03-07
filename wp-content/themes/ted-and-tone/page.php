@@ -25,10 +25,13 @@ if ($sidebar) {
 	$context['sidebar'] = $sidebar;
 } 
 
+
 if(is_account_page()){
 	TimberHelper::function_wrapper('wc_print_notices');
 	$context['is_shop_dashboard'] = !is_wc_endpoint_url();
 	$templates[] =  is_user_logged_in() ? 'page-shop-account.twig' : 'page-shop-login.twig' ;
+}else if(is_cart()){
+	$templates[] = 'page-shop-cart.twig' ;
 }else{
 	$templates[] =  'page-' . $post->post_name . '.twig';
 	$templates[] =  'page-text.twig';

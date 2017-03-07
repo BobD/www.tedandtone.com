@@ -221,12 +221,18 @@
 		}
 	}
 
+	& table.shop_table th,
+	& table.shop_table_responsive tr td:before{
+		@apply --title-small;
+	}
+
 	& a[href]{
 		@apply --link-underline;
 	}
 
 	& a.button,
-	& input.button{
+	& input.button,
+	& input.button:disabled[disabled]{
 		@apply --button;
 		margin-top: 0;
 
@@ -235,6 +241,9 @@
 		}
 	}
 
+	& a.button.alt{
+		@apply --button-important;
+	}
 
 	& form{
 		&,
@@ -260,7 +269,7 @@
 			& input[type='tel']{
 				@apply --font-family-sans-regular;
 				font-size: inherit;
-				padding: .5em;
+				padding: .5em .75em;
 				border: thin solid var(--color-grey);
 				background-color: transparent !important;
 
@@ -301,13 +310,92 @@
 			}
 		}
 	}
+
+	& .actions{
+		padding: 1rem !important;
+	}
+
+	& .coupon{
+		& .button,
+		& .input-text{
+			width: 50% !important;
+
+			@media (--screen-md) {
+				width: auto !important;
+			}
+		}
+	}
 }
 
+.cart{
+	& .woocommerce{
+
+		& .woocommerce-message{
+			flex-basis: 100%;
+		}
+
+		& form{
+			@media (--screen-sm) {
+				flex: 1;
+				margin-right: 3rem;
+			}
+		}
+
+		& .cart_item{
+			margin-bottom: 2rem;
+		}
+
+		& .cart-collaterals{
+			display: flex;
+			flex-direction: column;
+
+			@media (--screen-sm) {
+				margin-top: -3.2rem;
+				flex: 1;
+			}
+		}
+
+		& .woocommerce-message ~ .cart-collaterals{
+			@media (--screen-sm) {
+				margin-top: 0;
+			}
+		}
+
+		& .cart_totals,
+		& .cross-sells{
+			width: auto;
+			float: none;
+			margin-bottom: 4rem;
+		}
+
+		& .cart_totals{
+			order: 0;
+		}
+
+		& .cross-sells{
+			order: 1;
+		}
+		
+		& .cart_item a{
+			&:after{
+				display: none;
+			}
+		}
+
+		@media (--screen-sm) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+.woocommerce-message,
 .woocommerce-info{
 	border-top: none;
 	padding: 0 !important;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	background-color: transparent;
 
 	&:before{
@@ -318,7 +406,16 @@
 		float: none;
 		order: 1;
 		display: inline-block;
-		margin: 0 1rem !important;
+		margin-top: 1rem !important;
+
+		@media (--screen-sm) {
+			margin: 0 1rem !important;
+		}
+	}
+
+	@media (--screen-sm) {
+		flex-direction: row;
+		align-items: center;
 	}
 }
 

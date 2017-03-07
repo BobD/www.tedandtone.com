@@ -1,0 +1,20 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+	<article class="page">
+		<div class="page__main">
+			<div class="page__box page__box--full-width">
+				<div class="page__content">
+					<div class="page__text page__text--no-columns">
+						<div class="cart">
+							<h1 class="cart__title title title--big">Cart</h1>
+							<div class="cart__content">
+								{{post.content}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+{% endblock %}

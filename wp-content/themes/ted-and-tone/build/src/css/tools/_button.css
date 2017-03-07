@@ -1,22 +1,43 @@
 :root {
 	
 	--button: {
-		 border:none;
-		 background-color: var(--color-black-soft);
-		 color: white;
-		 text-transform: uppercase;
-		 padding: .5em .75em;
-		 font-size: inherit;
-		 font-family: inherit;
-		 cursor: pointer;
-		 margin-top: 1rem;
-		 transition: background-color ease .25s;
-		 text-decoration: none;
+		@apply --font-family-sans-regular;
 
-		 &:hover{
+		border:none;
+		background-color: var(--color-black-soft);
+		border: thin solid transparent;
+		color: white;
+		text-transform: uppercase;
+		padding: .5em .75em;
+		font-size: inherit;
+		cursor: pointer;
+		margin-top: 1rem;
+		transition: background-color ease .25s;
+		text-decoration: none;
+		line-height: normal;
+		border-radius: 0;
+
+		&:hover{
 			background-color: var(--color-gold);
 			color: white;
-		 }
+		}
+
+		&[disabled]{
+			&,
+		 	&:hover{
+		 		color: white !important;
+		 		background-color: var(--color-grey) !important;
+		 	}
+		}
+	}
+
+	--button-important: {
+		@apply --button;
+
+		&:hover{
+			background-color: var(--color-black-soft);
+		}
+
 	}
 
 }

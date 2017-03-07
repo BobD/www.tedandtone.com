@@ -16,4 +16,12 @@
 			margin-right: var(--page-box-small-margin);
 		}
 	};
+
+	--box-full-width: {
+		@pply --box;
+/*		@media (--screen-lg) {
+			margin-left: 0;
+			margin-right: 0;
+		}*/
+	}
 }
