@@ -1,5 +1,5 @@
 const env = process.env.NODE_ENV;
-const outputPath = env === 'development' ? '../css/styles.dev.css' : '../css/styles.css';
+const outputPath = env === 'development' ? '../css/styles.dev.css' : '../css/styles.min.css';
 
 const useInDevelopment =  env !== 'development' ? [] : [
 ];

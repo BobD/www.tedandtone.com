@@ -17,20 +17,44 @@ Timber::$dirname = array('templates', 'views');
 class TedAndTone extends TimberSite {
 
 	function __construct() {
-		add_post_type_support( 'page', 'excerpt' );
-		add_theme_support( 'post-formats' );
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'menus' );
-		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
-		add_action( 'init', array( $this, 'register_menus' ) );
+		add_post_type_support('page', 'excerpt' );
+		add_theme_support('post-formats' );
+		add_theme_support('post-thumbnails' );
+		add_theme_support('menus' );
+		add_filter('timber_context', array( $this, 'add_to_context' ) );
+		add_filter('get_twig', array( $this, 'add_to_twig' ) );
+		add_action('init', array( $this, 'register_post_types' ) );
+		add_action('init', array( $this, 'register_taxonomies' ) );
+		add_action('init', array( $this, 'register_menus' ) );
+		add_action('wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action('customize_register', array( $this, 'customize_register') );
 
 		$this->init_woocommerce();
 
 		parent::__construct();
+	}
+
+	function enqueue_assets(){
+		if(WP_ENV == 'development'){
+			wp_enqueue_style( 'tat_styles',  get_stylesheet_directory_uri() .'/css/styles.dev.css');
+		}else{
+			wp_enqueue_style( 'tat_styles',  get_stylesheet_directory_uri() .'/css/styles.min.css?c=' . $this->get_path_last_modified('/css/styles.min.css?c='));
+		}
+	}
+
+	function get_path_last_modified( $path ) {
+	   	$relPath = wp_make_link_relative($path);
+	   	if(strpos($relPath, '/') == 0){
+			$relPath = substr($relPath, 1);
+	   	}
+
+	   	$lastMod = filemtime($relPath);
+
+	   	if($lastMod == false){
+	   		$lastMod = time();
+	   	}
+
+	   	return $lastMod;
 	}
 
 	function customize_register($wp_customize) {
@@ -62,6 +86,7 @@ class TedAndTone extends TimberSite {
 		$context['site'] = $this;
 		$context['user_logged_in'] = is_user_logged_in();
 		$context['is_mobile'] = wp_is_mobile();
+		$context['site_url'] = get_site_url();
 		$context['shop_url'] = get_permalink( woocommerce_get_page_id( 'shop' ) );
 		$context['shop_cart_url'] = $woocommerce->cart->get_cart_url();
 		$context['shop_cart_total'] = $woocommerce->cart->cart_contents_count;
@@ -74,8 +99,6 @@ class TedAndTone extends TimberSite {
 		foreach(get_registered_nav_menus() as $k => $v) {
 		    $context['menu_' . $k] = new TimberMenu($k);
 		}
-
-		// var_dump($context['menu_about'] );
 
 		return $context;
 	}

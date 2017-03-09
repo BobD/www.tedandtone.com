@@ -1,4 +1,8 @@
 .link{
 	position: relative;
 	@apply --link;
+
+	&--underline{
+		@apply --link-underline;
+	}
 }

@@ -33,6 +33,10 @@
 	& .title{
 		line-height: 2.25;
 	}
+
+	& .page__ruler{
+		margin-top: 3rem;
+	}
 }
 
 .page__main{
