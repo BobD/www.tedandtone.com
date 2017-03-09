@@ -747,6 +747,9 @@ body:not(.body--mobile) .header__menu:hover  .menu__list{
        -moz-column-count: auto !important;
             column-count: auto !important;
 }
+.page__text--center {
+    text-align: center;
+}
 .page--account-dashboard .page__text{
 	-webkit-box-flex: 5;
 	    -ms-flex: 5;

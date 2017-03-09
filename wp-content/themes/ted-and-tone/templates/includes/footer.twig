@@ -28,9 +28,11 @@
     {% endif %}
 {% endmacro %}
 
-{{ _self.footerMenu(menu_about) }}
-{{ _self.footerMenu(menu_customer_care) }}
-{{ _self.footerMenu(menu_contact) }}
+{% if mode != 'maintenance' %}
+    {{ _self.footerMenu(menu_about) }}
+    {{ _self.footerMenu(menu_customer_care) }}
+    {{ _self.footerMenu(menu_contact) }}
+{% endif %}
 
 {% if env == 'development' %}
     <script src="{{site.theme.link}}/js/app.dev.bundle.js" charset="utf-8"></script>

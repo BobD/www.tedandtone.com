@@ -1,0 +1,42 @@
+{% block site_head %}
+	{% embed 'includes/html-header.twig' %}
+		{% block head %}
+		{% endblock %}
+	{% endembed %}
+{% endblock %}
+
+<body class="body {% if is_mobile %}body--mobile{% endif %}">
+	
+	<div class="site">
+		
+		<header class="header site__header">
+			{% include 'includes/header.twig' with {'mode': 'maintenance'} %}
+			{% block header %}
+			{% endblock %}
+		</header>
+
+		<main class="main site__main">
+			{% block main %}
+			{% endblock %}
+		</main>
+		
+		<footer class="footer site__footer">
+			{% include 'includes/footer.twig' with {'mode': 'maintenance'} %}
+			{% block footer %}
+			{% endblock %}
+		</footer>
+
+	</div>
+
+	{{function('wp_footer')}}
+
+	{% if user_logged_in %}
+		<style>
+			html{
+				/* override on WP admin-bar styles */
+				margin-top: 0 !important;
+			}
+		</style>
+	{% endif %}
+
+</body>

@@ -1,5 +1,7 @@
 <?php
 
+define('MAINTENANCE', true); 
+
 if ( ! class_exists( 'Timber' ) ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php') ) . '</a></p></div>';
@@ -28,10 +30,22 @@ class TedAndTone extends TimberSite {
 		add_action('init', array( $this, 'register_menus' ) );
 		add_action('wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action('customize_register', array( $this, 'customize_register') );
+		add_action('wp_loaded', array( $this, 'check_maintenance' ) );
 
 		$this->init_woocommerce();
 
 		parent::__construct();
+	}
+
+	function check_maintenance(){
+		if ( !is_admin() && !is_user_logged_in() && defined( 'MAINTENANCE' ) && MAINTENANCE) { 
+		    if ( file_exists( get_template_directory() . '/maintenance.php' ) ) {
+		    	header( "protocol 503 Service Unavailable", true, 503 );
+				header( "Retry-After: 3600" );
+		        require_once( get_template_directory() . '/maintenance.php' );
+		        die();
+		    }
+		}
 	}
 
 	function enqueue_assets(){

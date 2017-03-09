@@ -1,0 +1,301 @@
+	<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="nl"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" lang="nl"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" lang="nl"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="nl"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+        <title>   
+                            Ted &amp; Tone
+                 </title>
+    <meta name="description" content="">
+
+    <link as="style" rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" onload="this.rel='stylesheet'">
+    <noscript><link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"></noscript>
+    <link as="style" rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
+
+    <script>
+        // https://github.com/filamentgroup/loadCSS
+        /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+        !function(a){"use strict";var b=function(b,c,d){function j(a){return e.body?a():void setTimeout(function(){j(a)})}function l(){f.addEventListener&&f.removeEventListener("load",l),f.media=d||"all"}var g,e=a.document,f=e.createElement("link");if(c)g=c;else{var h=(e.body||e.getElementsByTagName("head")[0]).childNodes;g=h[h.length-1]}var i=e.styleSheets;f.rel="stylesheet",f.href=b,f.media="only x",j(function(){g.parentNode.insertBefore(f,c?g:g.nextSibling)});var k=function(a){for(var b=f.href,c=i.length;c--;)if(i[c].href===b)return a();setTimeout(function(){k(a)})};return f.addEventListener&&f.addEventListener("load",l),f.onloadcssdefined=k,k(l),f};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+        /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+        !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(a){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<!-- This site is optimized with the Yoast SEO plugin v4.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost:8080\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='woocommerce-layout-css'  href='//localhost:8080/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.6.14' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='//localhost:8080/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=2.6.14' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='//localhost:8080/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=2.6.14' type='text/css' media='all' />
+<link rel='stylesheet' id='tat_styles-css'  href='http://localhost:8080/wp-content/themes/ted-and-tone/css/styles.dev.css?ver=4.7.3' type='text/css' media='all' />
+<script type="text/javascript" src="http://localhost:8080/wp-content/cache/minify/df983.js"></script>
+
+
+<link rel='https://api.w.org/' href='http://localhost:8080/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost:8080/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://localhost:8080/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.7.3" />
+<meta name="generator" content="WooCommerce 2.6.14" />
+
+
+    		</head>
+<body class="body ">
+	
+	<div class="site">
+		
+		<header class="header site__header">
+			<a href="http://localhost:8080" class="header__logo">
+	<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 285 55" style="enable-background:new 0 0 285 55;" xml:space="preserve">
+<image style="overflow:visible;" width="285" height="55" id="_x3C_Groep_x3E__xA0_Image_1_" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAAA3CAYAAAAxKp6fAAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAGE1JREFUeNrsXQvcVlPWPyUxle6l
+dFWRGjIkXYhEavpKukgSydBXJLn7mpHLMH3CNEai6MKkZpRLhjEVg0lTKGLk0kgxSi7phu416z/v
+//k57Xftc/Y5z/u+z3kfZ/1+u6d3n3P22Ze1/3uttddep4yXUiT6x1UtqsnPCEldJB0iaY2khzuM
+f/+5tHdSSimcyqRdEAlw2sjPXEl1lcsTBHiuSHsppZRS0CkqwGkiP0slVQu47VIBnofT3kopJTuV
+TbvAmaaEAA5ojIBT2qcppZSCTtZSTlf56aRc2m383UBS+7THUkopBZ1s6Solb4akG5X8k9LuSikl
+O5UrIkmglvxMk9RN0kZJ13UY//70PJFyGnoFO1V+2iJpJCUbk45M2Sqn4wU75W8kXS6pvKRHJF0m
+/Lgn7Z38knRukfQ/kg6QVFPSQzL4h+ZJH/VR+mmaMDHAdaVyf62UrXJKZ1EChTvDQZKGSjo37ZY8
+knQEXA6UnwFKueXzpI+6K3mz8I8Az3Zpv3mtcimRBppLQuXrcKw2SVombXq3lI/XACWvfDrV80u9
+OkVSdSNviTDvv/NAVAegmjaaLyS9HvDYvgS3pynVDqz8h1nueQ+Sq4zf7FI4Xj+Rnx5GNtSqv6RT
+Pb9Ap5+SNztP+udYSRWMvJdkQu4jkx+sPLM5gZOxovzcQcAJG/OWkh6XZ2CjGyZt3VmKxgu2t0rK
+eH2ZTvU8AR36pPRSVvo5edI/xyt5i33/r65c35QwwKknP89LOibio0O8AlvWRaVovPooeXPSaZ4s
+ytaQ3NYrfCQAdoFP86R/tIn6pu//9ZTrXyQIcACKf4sBOBkaLGVcUEpUKyygPRXV6ql0mucX6Jyt
+5D2ZR/3TQsnzG1obKdeTZMua7Nm38JdJGitpoKTekm6S9JVy350yoQ8qBWN1siJ5/iNVrfJMvVJU
+K9DcPOqfpsbfXwkT+9Wn5sozqxOy8neUn77KpdckXS7tWGbkPy3PzOL1Gr78uhznxxM+VtoC+HQ6
+xRMKOsJsZ8jPcdD9XbdM5ZkjlUn3kTz/Xj50jLQPPkf1jexVxt8tlUdXJqQJlyl586GC2IzDkr9K
+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
+AElFTkSuQmCC">
+</image>
+</svg>
+</a>
+<div class="header__navigation">
+	</div>								</header>
+
+		<main class="main site__main">
+			
+	<article class="page">
+		
+		<header class="page__leaderboard">
+			<div class="leaderboard leaderboard--  ">
+		
+	<style>
+									@media (max-width: 300px) {
+					.leaderboard-- .leaderboard__image{
+						background-image: url('http://localhost:8080/wp-content/uploads/2017/03/school-props_03-300x200.jpg');
+					}
+				}
+							    							@media (min-width: 300px) and (max-width: 768px) {
+					.leaderboard-- .leaderboard__image{
+						background-image: url('http://localhost:8080/wp-content/uploads/2017/03/school-props_03-768x511.jpg');
+					}
+				}
+							    							@media (min-width: 768px){
+					.leaderboard-- .leaderboard__image{
+						background-image: url('http://localhost:8080/wp-content/uploads/2017/03/school-props_03.jpg');
+					}
+				}
+							        </style>
+
+    <div class="leaderboard__image"></div>
+
+	<div class="leaderboard__info">
+		<div class="leaderboard__sub-title title title--small"></div>
+		<h1 class="leaderboard__title title title--big">Maintenance</h5>
+		<div class="leaderboard__caption"></div>
+	</div>
+
+</div>		</header>
+
+		<div class="page__box page__box--small page__intro">
+			<div class="title">Whoops! It seems we're still working things out for Ted &amp; Tone.</div>
+			<hr class="page__ruler"/>
+		</div>
+
+
+		<div class="page__main">
+			<div class="page__box page__box--small">
+				<div class="page__content">
+					<div class="page__text page__text--no-columns">
+						<p>No worries, it won't take long. Stay tuned and check again later! </p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</article>
+
+		</main>
+		
+		<footer class="footer site__footer">
+			
+
+
+    <script type="text/javascript" src="http://localhost:8080/wp-content/cache/minify/5386f.js"></script>
+
+
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+								</footer>
+
+	</div>
+
+	<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View your shoppingbag","cart_url":"http:\/\/localhost:8080\/shop\/shoppingbag\/","is_cart":"","cart_redirect_after_add":"yes"};
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="http://localhost:8080/wp-content/cache/minify/dee63.js"></script>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="http://localhost:8080/wp-content/cache/minify/3c2c7.js"></script>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="http://localhost:8080/wp-content/cache/minify/7a27c.js"></script>
+
+
+
+	
+</body>
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 1651/1805 objects using disk
+Page Caching using disk: enhanced
+Content Delivery Network via N/A
+Minified using disk
+Database Caching using disk
+
+ Served from: localhost @ 2017-03-09 17:56:02 by W3 Total Cache -->

@@ -1,0 +1,37 @@
+<div class="leaderboard leaderboard--{{post.ID}} {% if modifiers %} {{modifiers}} {% endif %} ">
+	{% set sizes = wp_get_attachment_image_srcset(thumbnail_id)|attachment_background_styles %}
+	
+	<style>
+		{% for size, src in sizes %}
+			{% if loop.first %}
+				@media (max-width: {{size}}px) {
+					.leaderboard--{{post.ID}} .leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% elseif loop.last %}
+				@media (min-width: {{formerSize}}px){
+					.leaderboard--{{post.ID}} .leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% else %}
+				@media (min-width: {{formerSize}}px) and (max-width: {{size}}px) {
+					.leaderboard--{{post.ID}} .leaderboard__image{
+						background-image: url('{{src}}');
+					}
+				}
+			{% endif %}
+			{% set formerSize = size %}
+	    {% endfor %}
+    </style>
+
+    <div class="leaderboard__image"></div>
+
+	<div class="leaderboard__info">
+		<div class="leaderboard__sub-title title title--small">{{subtitle}}</div>
+		<h1 class="leaderboard__title title title--big">{{title}}</h5>
+		<div class="leaderboard__caption">{{caption}}</div>
+	</div>
+
+</div>

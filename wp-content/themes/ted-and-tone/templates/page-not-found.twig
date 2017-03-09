@@ -1,0 +1,32 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<article class="page">
+		
+		<header class="page__leaderboard">
+			{% include 'includes/leaderboard-static.twig' with {
+				'title': 'Page not found',
+				'thumbnail_id': 133
+			} %}
+		</header>
+
+		<div class="page__box page__box--small page__intro">
+			<div class="title">Whoops! Whatever you are looking for cannot be found.</div>
+			<hr class="page__ruler"/>
+		</div>
+
+
+		<div class="page__main">
+			<div class="page__box page__box--small">
+				<div class="page__content">
+					<div class="page__text page__text--no-columns page__text--center">
+						<p>No worries, that can happen. Perhaps check out our <a class="link link--underline" href="{{shop_url}}">shop</a> and find something nice, or simply head <a class="link link--underline" href="{{site_url}}">home</a>. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</article>
+
+{% endblock %}

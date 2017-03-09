@@ -115,6 +115,10 @@
 	&--no-columns{
 		column-count: auto !important;
 	}
+
+	&--center{
+		text-align: center;
+	}
 }
 
 .page--account-dashboard .page__text{
