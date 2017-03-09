@@ -6,7 +6,7 @@
 				
 		{% for block in intro_blocks %}
 			<a href="{{get_permalink(block.ID)}}" class="page__leaderboard">
-				{% include 'includes/leaderboard.twig' with {'post': block, 'modifiers': loop.index0 is odd ? 'leaderboard--info-left' : 'eaderboard--info-right' } %}
+				{% include 'includes/leaderboard.twig' with {'post': block, 'modifiers': loop.index0 is odd ? 'leaderboard--info-left' : 'leaderboard--info-right' } %}
 			</a>
 		{% endfor %}
 

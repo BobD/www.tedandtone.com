@@ -25,7 +25,6 @@ if ($sidebar) {
 	$context['sidebar'] = $sidebar;
 } 
 
-
 if(is_account_page()){
 	TimberHelper::function_wrapper('wc_print_notices');
 	$context['is_shop_dashboard'] = !is_wc_endpoint_url();
@@ -35,7 +34,19 @@ if(is_account_page()){
 }else if(is_checkout()){
 	$templates[] = 'page-shop-checkout.twig' ;
 }else{
-	$templates[] =  'page-' . $post->post_name . '.twig';
+	$parent_pages = get_post_ancestors( $post );
+	$parent_template_parts = array();
+
+	foreach ($parent_pages as $parent_id) {
+		$parent_template_parts[] = get_post_field( 'post_name', $parent_id);
+	}
+
+	$parent_template_path = join("-", $parent_template_parts);
+	if(count($parent_pages) > 0){
+		$parent_template_path .= '-';
+	}
+
+	$templates[] =  'page-' . $parent_template_path . $post->post_name . '.twig';
 	$templates[] =  'page-text.twig';
 }
 

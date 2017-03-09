@@ -61,10 +61,11 @@
 	@apply --navigation;
 }
 
-.footer__menu-sub-list{
+.footer__socials{
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	font-size: 120%;
 }
 
 .footer__title{

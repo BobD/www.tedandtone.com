@@ -17,28 +17,6 @@
 
 		<div class="page__main">
 			
-			{% if category.content %}
-				<div class="page__box page__box--small">
-
-					<div class="page__content">
-
-						{% if post.sidebar %}
-							<aside class="page__sidebar">
-								{{category.sidebar|shortcodes}}
-							</aside>
-						{% endif %}
-
-						<div class="page__text">
-							{{category.content}}
-						</div>
-
-					</div>
-
-					<hr class="page__ruler"/>
-
-				</div>
-			{% endif %}
-
 			{% if products %}
 				<div class="page__box">
 					{% include 'includes/products.twig' with {'products': products, 'modifiers': 'page__categories' } %}	

@@ -9,6 +9,8 @@
  * @since   Timber 0.1
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $templates = array( 'front-page.twig' );

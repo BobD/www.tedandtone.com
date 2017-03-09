@@ -1,3 +1,11 @@
+{% macro socialMenu(menu) %}
+     <ul class="footer__socials socials">
+        {% for item in menu %}
+            <a class="socials__link {{ item._menu_item_classes | join(' ')}}" href="{{item.get_link}}" target="_blank" title="{{item.title}}"></a>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
 {% macro footerMenu(menu) %}
     {% if menu %}
         <nav class="footer__menu">
@@ -5,13 +13,13 @@
             <ul class="footer__menu-list">        
                 {% for item in menu.items %}
                     <li class="footer__menu-item {% if 'current-menu-item' in item.classes %}is-active{% endif %}">
-                        <a class="link footer__menu-link" href="{{item.get_link}}">{{item.title}}</a>
-                        {% if item.children %}
-                            <ul class="footer__menu-sub-list">
-                                {% for item in item.children %}
-                                    <a class="link footer__menu-link" href="{{item.get_link}}">{{item.title}}</a>
-                                {% endfor %}
-                            </ul>
+                        {% if item.get_link != '' %}
+                            <a class="link footer__menu-link" href="{{item.get_link}}" title="{{item.title}}">{{item.title}}</a>
+                        {% else %}
+                            <div class="footer__menu-title">{{item.title}}</div>
+                        {% endif %}
+                        {% if item.children and menu.id == 5 %}
+                            {{ _self.socialMenu(item.children) }}
                         {% endif %}
                     </li>
                 {% endfor %}

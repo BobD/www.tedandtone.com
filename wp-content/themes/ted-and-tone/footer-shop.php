@@ -64,7 +64,7 @@ if(is_woocommerce()){
         $timberContext['intro'] = term_description($category_id, 'product_cat' );
         $timberContext['products'] = Timber::get_posts();
         $timberContext['pagination'] = Timber::get_pagination();
-		$templates[] = 'page-shop-categories.twig';
+		$templates[] = 'page-shop-category.twig';
 	}
 
 }else{

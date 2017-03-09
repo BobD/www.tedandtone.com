@@ -4,7 +4,7 @@
 
 .menu__title{
 	user-select: none;
-	padding: 0 var(--page-side-padding);
+	padding: 0 calc(var(--page-side-padding) / 2);
 	display: none;
 
 	@media (--screen-xs) {
@@ -19,7 +19,7 @@
 
 .menu__hamburger{
 	font-size: .75em;
-	left: var(--page-side-padding);
+	left: calc(var(--page-side-padding) / 2);
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -39,10 +39,16 @@
   -webkit-touch-callout: none;
 }
 
+.menu__title-link,
+.menu__item{
+	letter-spacing: .12rem;
+}
+
 .menu__label{
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
+	margin: 0;
 }
 
 .menu__list{
@@ -69,7 +75,6 @@
 	}
 }
 
-
 .menu__toggle:checked ~ .menu__list{
 	transform: scale(1.0, 1.0);
 
@@ -86,7 +91,8 @@ body:not(.body--mobile) .header__menu:hover  .menu__list{
 
 .menu__item{
 	@apply --navigation;
-	padding: 0 var(--page-side-padding);
+	padding: 0 calc(var(--page-side-padding) / 2);
+	line-height: .8;
 
 	&:first-child{
 		margin-top: 1rem;
@@ -95,6 +101,12 @@ body:not(.body--mobile) .header__menu:hover  .menu__list{
 	&:last-child{
 		margin-bottom: 1.5rem;
 	}
+}
+
+.menu__divider{
+	border: 0;
+	height: 1em;
+	margin: 0;
 }
 
 .menu__link{

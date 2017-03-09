@@ -1,0 +1,80 @@
+{% extends "layouts/site.twig" %}
+
+{% block main %}
+
+	<div class="page">
+
+		<header class="page__leaderboard">
+			{% include 'includes/leaderboard.twig' with {'post': post, 'title_tag': 'h1'} %}
+		</header>
+
+		{% if intro %}
+			<div class="page__intro page__box page__box--small">
+				<div class="title">{{intro}}</div>
+				<hr class="page__ruler"/>
+			</div>
+		{% endif %}
+
+		<div class="page__main">
+			
+			{% if post.content %}
+				<div class="page__box page__box--small">
+
+					<div class="page__content">
+
+						{% if post.sidebar %}
+							<aside class="page__sidebar">
+								{{post.sidebar|shortcodes}}
+							</aside>
+						{% endif %}
+
+						<div class="page__text">
+							{{post.content}}
+						</div>
+
+					</div>
+
+					<hr class="page__ruler"/>
+
+				</div>
+			{% endif %}
+
+			{% if products %}
+				<div class="page__box">
+					{% include 'includes/products.twig' with {'products': products, 'modifiers': 'page__categories' } %}	
+				</div>
+				
+				{% if pagination.pages %}
+					<div class="page__box page__box--small">
+						<hr class="page__ruler"/>
+						<div class="page__pagination pagination">
+
+							{% if pagination.prev %}
+						        <a href="{{pagination.prev.link}}" class="pagination__prev {{pagination.prev.link|length ? '' : 'invisible'}}"><i class="pagination__icon fa fa-angle-left" aria-hidden="true"></i>Prev</a>
+						    {% endif %}
+
+						    <ul class="pagination__list">
+						        {% for page in pagination.pages %}
+						            <li class="pagination__item">
+						                {% if page.link %}
+						                    <a class="pagination__link" href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+						                {% else %}
+						                    <span class="pagination__current">{{page.title}}</span>
+						                {% endif %}
+						            </li>
+						        {% endfor %}
+						    </ul>
+
+						    {% if pagination.next %}
+						        <a href="{{pagination.next.link}}" class="pagination__next {{pagination.next.link|length ? '' : 'invisible'}}">Next<i class="pagination__icon fa fa-angle-right" aria-hidden="true"></i></a>
+						    {% endif %}
+						</div>
+					</div>
+				{% endif %}
+			{% endif %}
+			
+		</div>
+
+	</div>
+
+{% endblock %}
