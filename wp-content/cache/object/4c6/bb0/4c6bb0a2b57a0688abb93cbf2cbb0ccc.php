@@ -1,1 +1,0 @@
-Q‹ÁX<?php exit; ?>a:1:{s:7:"content";s:233:"[caption id="attachment_49" align="alignnone" width="300"]<img class="wp-image-49 size-medium" src="http://localhost:8080/wp-content/uploads/2017/02/ted-and-tone-1-300x300.jpg" width="300" height="300" /> At the Office 2016[/caption]";}

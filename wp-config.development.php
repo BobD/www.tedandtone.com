@@ -33,3 +33,8 @@ define('DB_HOST', 'mysql');
  */
 
 define('WP_DEBUG', true);
+
+// Define W3 Total Cache hostname
+if (defined('WP_CACHE')) {
+    define('COOKIE_DOMAIN', rtrim($hostname, ':8080'));
+}

@@ -38,7 +38,7 @@ class TedAndTone extends TimberSite {
 	}
 
 	function check_maintenance(){
-		if ( !is_admin() && !is_user_logged_in() && defined( 'MAINTENANCE' ) && MAINTENANCE) { 
+		if ( !$this->is_login_page() &&  !is_admin() && !is_user_logged_in() && defined( 'MAINTENANCE' ) && MAINTENANCE) { 
 		    if ( file_exists( get_template_directory() . '/maintenance.php' ) ) {
 		    	header( "protocol 503 Service Unavailable", true, 503 );
 				header( "Retry-After: 3600" );
@@ -46,6 +46,10 @@ class TedAndTone extends TimberSite {
 		        die();
 		    }
 		}
+	}
+
+	function is_login_page() {
+	    return in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'));
 	}
 
 	function enqueue_assets(){

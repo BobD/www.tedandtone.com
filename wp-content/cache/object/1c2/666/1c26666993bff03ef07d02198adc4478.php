@@ -1,1 +1,1 @@
-+‹ÁX<?php exit; ?>a:1:{s:7:"content";i:1;}
+&¹ÂX<?php exit; ?>a:1:{s:7:"content";i:1;}

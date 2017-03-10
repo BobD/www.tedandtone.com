@@ -1,1 +1,1 @@
-E‹ÁX<?php exit; ?>a:1:{s:7:"content";s:19:"field_58b6d7a805e19";}
+A¸ÂX<?php exit; ?>a:1:{s:7:"content";s:19:"field_58b6d7a805e19";}

@@ -10,6 +10,8 @@ wp-content/themes/index.php
 wp-content/upgrade
 wp-content/uploads
 wp-content/languages
+wp-content/cache/*
+wp-snapshots
 /sitemap.*
 *.sql
 .htaccess
