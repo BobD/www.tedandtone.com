@@ -20,6 +20,7 @@ wp-config.*
 .babelrc
 node_modules/
 wp-content/themes/**/dist/
+apache/
 npm-debug.log
 
 *.DS_Store
