@@ -10,9 +10,9 @@
     "dbcache.debug": false,
     "dbcache.enabled": "1",
     "dbcache.engine": "file",
-    "dbcache.file.gc": 3600,
+    "dbcache.file.gc": "3600",
     "dbcache.file.locking": false,
-    "dbcache.lifetime": 180,
+    "dbcache.lifetime": "180",
     "dbcache.memcached.persistent": true,
     "dbcache.memcached.aws_autodiscovery": false,
     "dbcache.memcached.servers": [
@@ -34,13 +34,17 @@
         "XMLRPC_REQUEST"
     ],
     "dbcache.reject.cookie": [],
-    "dbcache.reject.logged": true,
+    "dbcache.reject.logged": "1",
     "dbcache.reject.sql": [
         "gdsr_",
         "wp_rg_",
-        "_wp_session_"
+        "_wp_session_",
+        "_wc_session_",
+        ""
     ],
-    "dbcache.reject.uri": [],
+    "dbcache.reject.uri": [
+        ""
+    ],
     "dbcache.reject.words": [
         "^\\s*insert\\b",
         "^\\s*delete\\b",

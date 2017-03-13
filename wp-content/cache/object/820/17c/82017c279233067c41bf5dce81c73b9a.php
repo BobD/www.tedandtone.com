@@ -1,1 +1,0 @@
-&¹ÂX<?php exit; ?>a:1:{s:7:"content";a:4:{s:26:"woocommerce_status_options";b:1;s:27:"woocommerce_lock_down_admin";b:1;s:42:"_transient_timeout__wc_activation_redirect";b:1;s:34:"_transient__wc_activation_redirect";b:1;}}

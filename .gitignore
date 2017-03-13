@@ -13,6 +13,7 @@ wp-content/languages
 wp-content/cache/*
 wp-snapshots
 /sitemap.*
+wp-config.*
 *.sql
 .htaccess
 

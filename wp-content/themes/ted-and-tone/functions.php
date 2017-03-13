@@ -30,7 +30,10 @@ class TedAndTone extends TimberSite {
 		add_action('init', array( $this, 'register_menus' ) );
 		add_action('wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action('customize_register', array( $this, 'customize_register') );
-		add_action('wp_loaded', array( $this, 'check_maintenance' ) );
+
+		if(WP_ENV == 'development'){
+			add_action('wp_loaded', array( $this, 'check_maintenance' ) );
+		}
 
 		$this->init_woocommerce();
 
