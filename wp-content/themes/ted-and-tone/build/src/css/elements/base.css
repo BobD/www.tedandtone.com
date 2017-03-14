@@ -6,7 +6,6 @@
 
 html,
 body{
-	overflow-x: hidden;
 }
 
 html {
@@ -21,6 +20,7 @@ html {
 
 body {
 	margin: 0;
+		overflow-x: hidden;
 
  	@apply --font-size-base;
  	@apply --font-family-serif;

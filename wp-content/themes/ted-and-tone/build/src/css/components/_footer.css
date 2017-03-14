@@ -12,8 +12,10 @@
 			display: block;
 			position: absolute;
 			top: 0;
-			left: -100%;
-			right: -100%;
+			width: 100vw;
+			left: 50%;
+	    	transform: translateX(-50%);
+			background: var(--color-black);
 			background: var(--color-black);
 			height: 3rem;
 			z-index: -1;
